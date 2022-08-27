@@ -1,0 +1,35 @@
+<% if(typeof err != "undefined") { %> 
+  <% err.forEach(function(error) { %>
+    <div class="box-err">
+      <h6 class="text-err">
+        <%= error.msg %>
+      </h6>
+    </div>
+  <% }); %>
+<% } %>
+
+
+<% if(success_msg != '') { %>
+  <div class="box-err">
+    <h6 class="text-err primary_color">
+      <%= success_msg %>
+    </h6>
+  </div>
+<% } %>
+
+
+<% if(error_msg != '') { %>
+  <div class="box-err">
+    <h6 class="text-err">
+      <%= error_msg %>
+    </h6>
+  </div>
+<% } %>
+
+<% if(error != '') { %>
+  <div class="box-err">
+    <h6 class="text-err">
+      <%= error %>
+    </h6>
+  </div>
+<% } %>
