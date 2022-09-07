@@ -19,7 +19,7 @@ a {
 
 h6{
   margin-block-start: 0;
-    margin-block-end: 0;
+  margin-block-end: 0;
 }
 
 .center-flex {
@@ -57,6 +57,10 @@ h6{
   overflow-y: auto;
   padding-left: 55px;
   padding-right: 55px;
+}
+
+.modal-content:last-child{
+  padding-bottom: 60px;
 }
 
 .content-group {
@@ -271,7 +275,7 @@ h6{
 
 .button-primary {
   color: #fff;
-  background-color: #0074e4;
+  background-color: #0074e4 !important;
 }
 
 .span-label {

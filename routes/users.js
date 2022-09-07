@@ -8,15 +8,15 @@ const passport = require('passport');
 const User = require('../models/User');
 
 router.get('/login', (req, res) => {
-  res.render("login")
+  res.render("login", {title: 'Login Page'})
 })
 
 router.get('/register', (req, res) => {
-  res.render("register")
+  res.render("register", {title: 'Register Page'})
 })
 
 router.get('/options-signup', (req, res) => {
-  res.render("options-signup")
+  res.render("options-signup", {title: 'Options Sign Up Page'})
 })
 
 //handle
