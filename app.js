@@ -24,6 +24,7 @@ mongoose.connect(db, {
 app.use('/assets', express.static('assets'))
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
+app.set('adminLayout', './admin/layout')
 app.use(express.urlencoded({extended: false}));
 
 //express-session
@@ -51,6 +52,7 @@ app.use((req, res, next) => {
 //routes
 app.use("/", require('./routes/index'));
 app.use("/users", require('./routes/users'));
+app.use("/admin", require('./routes/admin'));
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, console.log(`Server listening on ${PORT}`));

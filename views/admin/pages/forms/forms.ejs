@@ -1,0 +1,189 @@
+<style>
+  .dropdown-item:hover,
+  .dropdown-item:focus {
+    color: #fff;
+    text-decoration: none;
+    background-color: #13151b;
+  }
+  textarea{
+    overflow-y: hidden;
+  }
+</style>
+<!-- partial -->
+<div class="main-panel">
+  <div class="content-wrapper">
+    <div class="page-header">
+      <h3 class="page-title">Form elements</h3>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Forms</a></li>
+          <li class="breadcrumb-item active" aria-current="page">
+            Form elements
+          </li>
+        </ol>
+      </nav>
+    </div>
+    <div class="row">
+      <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">Basic course elements</h4>
+            <form
+              action="/admin/forms"
+              method="post"
+              class="forms-sample"
+              autocomplete="off"
+              enctype="application/x-www-form-urlencoded"
+            >
+              <div class="form-group">
+                <label for="exampleInputInstructors">Instructors</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="instructors"
+                  id="exampleInputInstructors"
+                  placeholder="Instructors"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label>Upload Image Profile</label>
+                <input type="file" name="profile" class="file-upload-default" />
+                <div class="input-group col-xs-12">
+                  <input
+                    type="text"
+                    class="form-control file-upload-info"
+                    disabled
+                    placeholder="Upload Image"
+                  />
+                  <span class="input-group-append">
+                    <button
+                      class="file-upload-browse btn btn-primary"
+                      type="button"
+                    >
+                      Image Profile
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleInputTitle">Title</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputTitle"
+                  name="title"
+                  placeholder="Name"
+                />
+              </div>
+              <div class="form-group">
+                <label for="exampleInputOverview">Overview</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="exampleInputOverview"
+                  name="overview"
+                  placeholder="Overview"
+                />
+              </div>
+
+              <div class="form-group">
+                <label for="exampleSelectOptions"
+                  >Select Table of Content</label
+                >
+                <select
+                  class="form-control selectpicker"
+                  for="exampleSelectOptions"
+                  multiple
+                  name="collections"
+                  aria-label="size 3 select example"
+                >
+                  <option value="All">All</option>
+                  <option value="Performance">Performance</option>
+                  <option value="Build excellent websites">
+                    Build excellent websites
+                  </option>
+                  <option value="Frameworks">Frameworks</option>
+                  <option value="Lighthouse">Lighthouse</option>
+                  <option value="Explorations">Explorations</option>
+                  <option value="Challenger">Challenger</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label>Image upload</label>
+                <input type="file" name="course" class="file-upload-default" />
+                <div class="input-group col-xs-12">
+                  <input
+                    type="text"
+                    class="form-control file-upload-info"
+                    disabled
+                    placeholder="Upload Image"
+                  />
+                  <span class="input-group-append">
+                    <button
+                      class="file-upload-browse btn btn-primary"
+                      type="button"
+                    >
+                      Image
+                    </button>
+                  </span>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="exampleSelectStatus">Status</label>
+                <select
+                  class="form-control"
+                  name="status"
+                  id="exampleSelectStatus"
+                >
+                  <option>Pending</option>
+                  <option>In progress</option>
+                  <option>Fixed</option>
+                  <option>Completed</option>
+                  <option>Demo</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="exampleTextarea1">Description</label>
+                <textarea
+                  class="form-control"
+                  id="exampleTextarea1"
+                  rows="6"
+                  name="description"
+                ></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary mr-2">Submit</button>
+              <button class="btn btn-dark">Cancel</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- content-wrapper ends -->
+  <script>
+    document.querySelectorAll("textarea").forEach((el) => {
+      el.style.height = el.setAttribute(
+        "style",
+        "height: " + el.scrollHeight + "px"
+      );
+      el.classList.add("auto");
+      el.addEventListener("input", (e) => {
+        el.style.height = "auto";
+        el.style.height = el.scrollHeight + "px";
+      });
+    });
+  </script>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+    crossorigin="anonymous"
+  ></script>
+  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
+  <script src="../assets/js/multiple-select.js"></script>
+</div>

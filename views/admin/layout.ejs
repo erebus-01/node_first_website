@@ -1,0 +1,46 @@
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>web.dev Admin</title>
+    <!-- plugins:css -->
+    <link rel="stylesheet" href="../../assets/vendors/mdi/css/materialdesignicons.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/css/vendor.bundle.base.css">
+    <!-- endinject -->
+    <!-- Plugin css for this page -->
+    <link rel="stylesheet" href="../../assets/vendors/jvectormap/jquery-jvectormap.css">
+    <link rel="stylesheet" href="../../assets/vendors/flag-icon-css/css/flag-icon.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/owl-carousel-2/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../assets/vendors/owl-carousel-2/owl.theme.default.min.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css" integrity="sha512-mR/b5Y7FRsKqrYZou7uysnOdCIJib/7r5QeJMFvLNHNhtye3xJp1TdJVPLtetkukFn227nKpXD9OjUc09lx97Q==" crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <!-- End plugin css for this page -->
+    <!-- inject:css -->
+    <!-- endinject -->
+    <!-- Layout styles -->
+  <link rel="stylesheet" href="../assets/css/bootstrap-select.min.css">
+  <link rel="stylesheet" href="../assets/admin.css">
+  <link rel="stylesheet" href="../assets/vendors/select2/select2.min.css">
+  </head>
+  <body>
+    <div class="container-scroller">
+      <!-- partial:partials/_sidebar.ejs -->
+      <%- include('./partials/_sidebar') %>
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+        <!-- partial:partials/_navbar.ejs -->
+        <%- include('./partials/_navbar') %>
+
+        <!-- body -->
+        <%- body %>
+        <!-- end body -->
+      </div>
+    <!-- main-panel ends -->
+    </div>
+  <!-- page-body-wrapper ends -->
+  </div>
+  <!-- container-scroller -->
+<!-- script -->
+
+<%- include('./partials/_script') %>
+</body>
+</html>
