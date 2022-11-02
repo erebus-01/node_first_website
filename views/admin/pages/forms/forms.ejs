@@ -33,7 +33,7 @@
               method="post"
               class="forms-sample"
               autocomplete="off"
-              enctype="application/x-www-form-urlencoded"
+              enctype="multipart/form-data"
             >
               <div class="form-group">
                 <label for="exampleInputInstructors">Instructors</label>
@@ -45,26 +45,6 @@
                   placeholder="Instructors"
                   required
                 />
-              </div>
-              <div class="form-group">
-                <label>Upload Image Profile</label>
-                <input type="file" name="profile" class="file-upload-default" />
-                <div class="input-group col-xs-12">
-                  <input
-                    type="text"
-                    class="form-control file-upload-info"
-                    disabled
-                    placeholder="Upload Image"
-                  />
-                  <span class="input-group-append">
-                    <button
-                      class="file-upload-browse btn btn-primary"
-                      type="button"
-                    >
-                      Image Profile
-                    </button>
-                  </span>
-                </div>
               </div>
               <div class="form-group">
                 <label for="exampleInputTitle">Title</label>
@@ -152,6 +132,13 @@
                   name="description"
                 ></textarea>
               </div>
+
+              <button id="add" class="btn btn-outline-primary add-more button-yellow uppercase" type="button">+ Add another Table of contents</button> 
+              <button class="delete btn btn-outline-danger button-white uppercase" type="button">- Remove last Table of contents</button>
+              <div id="items" class="form-group">
+              </div>
+
+
               <button type="submit" class="btn btn-primary mr-2">Submit</button>
               <button class="btn btn-dark">Cancel</button>
             </form>
@@ -184,6 +171,32 @@
     integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
     crossorigin="anonymous"
   ></script>
+
+  <script>
+      $(document).ready(function() {
+    let id = 1;
+    $(".delete").hide();
+    //when the Add Field button is clicked
+    $("#add").click(function(e) {
+      $(".delete").fadeIn("1500");
+      //Append a new row of code to the "#items" div
+      $("#items").append(
+        "<div class='next-referral" + id + " mb-4 next-referral' id='next-referral" + id + "'><div class='d-flex align-items-center justify-content-between py-3'><label for='tableOfContents"+id+"'>Table of contents "+ id +"</label><a href='#' class='btn btn-danger' onClick='removeFormField(\"#next-referral" + id + "\"); return false;' >Remove</a></div><div class='col-12 p-0 mb-2'><input id='textinput' name='textinput"+ id +"' type='text' placeholder='Enter name of table of contents' class='form-control input-md'></div><div class='col-12 p-0'><textarea id='textarea' name='textinput"+ id +"' rows='6' type='text' placeholder='Enter content of Table of contents' class='form-control input-md'></textarea></div></div>"
+      );
+    id = id - 1 + 2;
+    });
+    $("body").on("click", ".delete", function(e) {
+      $(".next-referral").last().remove();
+    });
+  });
+
+  function removeFormField(id) {  
+    $(id).remove();
+    console.log(id)
+  }
+  </script>
+
+
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
   <script src="../assets/js/multiple-select.js"></script>
 </div>

@@ -12,7 +12,7 @@ var storageProfile = multer.diskStorage({
 
 var storageCourse = multer.diskStorage({
   destination: (req, files, cb) => {
-    cb(null, "../uploads/course");
+    cb(null, "./uploads/course");
   },
   filename: (res, files, cb) => {
     cb(null, files.fieldname + "_" + Date.now() + "_" + files.originalname);
@@ -31,7 +31,7 @@ const getAllCourses = (req, res, next) => {
   res.render("./admin/pages/forms/forms", { layout: "admin/layout" });
 };
 
-const createCourse = (req, res) => {
+const createCourse = (uploadCourse, (req, res) => {
   console.log(req.body);
   const {
     instructors,
@@ -61,7 +61,7 @@ const createCourse = (req, res) => {
   }
 
   if(err.length > 0){
-    res.render('/admin/forms', {
+    res.render('./admin/pages/forms/forms', {
       instructors,
       profile,
       title,
@@ -75,11 +75,11 @@ const createCourse = (req, res) => {
   else{
     newCourse.save().then(course => {
       req.flash('success_msg', 'Course saved successfully');
-      req.redirect('admin/forms');
+      res.redirect('/admin/forms');
     })
     .catch(err => console.log(err))
   }
-};
+});
 
 const getTask = (req, res) => {
   res.send("get course");

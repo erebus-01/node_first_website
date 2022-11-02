@@ -4,10 +4,6 @@ const CourseSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-  profile: {
-    type: String,
-    required: true,
-  },
   title: {
     type: String,
     required: true
@@ -32,9 +28,18 @@ const CourseSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  tableOfContents: [{
-    type: Array
-  }],
+  tableOfContents: [
+    new mongoose.Schema({
+      nameTable: {
+        type: String,
+        required: false,
+      },
+      contentTable: {
+        type: String,
+        required: false,
+      },
+    })
+  ],
   createDate: {
     type: Date,
     required: true,
