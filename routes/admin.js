@@ -5,11 +5,13 @@ const {
   getAllCourses,
   getAllCategories,
   getAllUser,
-  fetchAllCategories,
+  fetchAllBlog,
+  getCategories,
+  getBlog,
   createCourse,
-  getTask,
   updateTask,
   getAllBlog,
+  getCourse,
   deleteTask
 } = require('../controllers/course')
 
@@ -53,11 +55,13 @@ router.get('/index', (req, res) => {
 //Course routes
 // router.route("/forms").post(createCourse);
 router.route("/tables_course").get(getAllCourses)
-router.route("/tables_blog").get(fetchAllCategories)
+router.route("/tables_blog").get(fetchAllBlog)
 router.route("/tables_categories").get(getAllCategories)
 router.route("/tables_user").get(getAllUser)
 router.route("/blog").get(getAllBlog)
-router.route("/forms/:id").get(getTask).patch(updateTask).delete(deleteTask);
+router.route("/edit_course/:id").get(getCourse)
+router.route("/edit_blog/:id").get(getBlog);
+router.route("/edit_categories/:id").get(getCategories);
 
 router.get('/charts', (req, res) => {
   res.render('./admin/pages/charts/chartjs', {layout: 'admin/layout'});
@@ -65,6 +69,8 @@ router.get('/charts', (req, res) => {
 
 router.post('/forms', uploadCourse, (req, res) => {
   console.log(req.body);
+  const arrTable = req.body.tableContent
+  const tableOfContent = arrTable.split('\r\n')
   let err = [];
 
   const newCourse = new Course({
@@ -75,6 +81,7 @@ router.post('/forms', uploadCourse, (req, res) => {
     course: req.file.filename,
     status: req.body.status,
     description: req.body.description,
+    tableOfContents: tableOfContent
   });
 
   if(!req.body.instructors || 
@@ -103,18 +110,10 @@ router.get('/forms', (req, res) => {
   res.render('./admin/pages/forms/forms', {layout: 'admin/layout'});
 })
 
-// router.get('/blog', async (req, res) => {
-//   try{
-//     const categories = await Categories.find({})
-//     res.render("./admin/pages/categories/categories", { layout: "admin/layout", categories: categories});
-//     next();
-//   }
-//   catch(error) {
-//     res.status(500).json({msg: error});
-//   }
-// })
 router.post('/blog', uploadBlog, (req, res) => {
   console.log(req.body);
+  const arrTable = req.body.tableContent
+  const tableOfContent = arrTable.split('\r\n')
   let err = [];
 
   const newBlog = new Blog({
@@ -124,18 +123,8 @@ router.post('/blog', uploadBlog, (req, res) => {
     description: req.body.description,
     author: req.body.author,
     collections: req.body.collections,
+    tableOfContent: tableOfContent
   });
-
-  // if(!req.body.instructors || 
-  //   !req.body.title || 
-  //   !req.body.overview || 
-  //   !req.body.collections || 
-  //   !req.file.filename || 
-  //   !req.body.status || 
-  //   !req.body.description
-  // ){
-  //   err.push({msg: "Please fill in all required fields \n"})
-  // }
 
   if(err.length > 0){
     res.render('./admin/pages/blog/blog')
@@ -188,13 +177,26 @@ router.post('/categories', (req, res) => {
   }
 })
 
+// router.get('/edit_course/:id', (req, res) => {
+//   let id = req.params.id;
+//   Course.findById(id, (error, course) => {
+//     if(error) {
+//       res.redirect('/forms')
+//     }
+//     else{
+//       if(course == null) {
+//         res.redirect('/forms')
+//       }
+//       else{
+//         res.render('./admin/pages/forms/update_course', { layout: "admin/layout", course: course})
+//       }
+//     }
+//   })
+// })
+
 router.get('/icons', (req, res) => {
   res.render('./admin/pages/icons/icon', {layout: 'admin/layout'});
 })
-
-// router.get('/tables', (req, res) => {
-//   res.render('./admin/pages/tables/table', {layout: 'admin/layout'});
-// })
 
 router.get('/custom', (req, res) => {
   res.render('./admin/pages/ui-features/buttons', {layout: 'admin/layout'});

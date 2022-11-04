@@ -44,6 +44,10 @@
                               <td><%= category.tags %></td>
                               <td><%= category.content %></span> </td>
                               <td><%= category.createDate %></span> </td>
+                              <td>
+                                <a href="edit_categories/<%= category._id %>" class="btn btn-success">Edit</a>
+                                <a href="" class="btn btn-danger">Delete</a>
+                              </td>
                             </tr>
                           <% }) %>
                         </tbody>

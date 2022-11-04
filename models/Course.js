@@ -28,18 +28,10 @@ const CourseSchema = new mongoose.Schema({
     type: String,
     required: true
   },
-  tableOfContents: [
-    new mongoose.Schema({
-      nameTable: {
-        type: String,
-        required: false,
-      },
-      contentTable: {
-        type: String,
-        required: false,
-      },
-    })
-  ],
+  tableOfContents: [{
+    type: String,
+    require: true
+  }],
   createDate: {
     type: Date,
     required: true,

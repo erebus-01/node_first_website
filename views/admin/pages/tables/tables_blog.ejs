@@ -50,6 +50,10 @@
                               <td style="max-width: 300px"> <span class="max-lines"><%= blog.description %></span> </td>
                               <td style="max-width: 300px"> <span class="max-lines"><%= blog.collections %></span> </td>
                               <td><span class="dateFormat"><%= blog.createDate %></span></td>
+                              <td>
+                                <a href="edit_course/<%= blog._id %>" class="btn btn-success">Edit</a>
+                                <a href="" class="btn btn-danger">Delete</a>
+                              </td>
                             </tr>
                           <% }) %>
                         </tbody>

@@ -24,6 +24,10 @@ const BlogSchema = new mongoose.Schema({
     type: String,
     require: true
   }],
+  tableOfContent: [{
+    type: String,
+    require: true
+  }],
   createDate: {
     type: Date,
     require: true,

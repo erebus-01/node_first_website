@@ -1,3 +1,7 @@
+<link rel="stylesheet" href="../../assets/css/bootstrap-select.min.css">
+<link rel="stylesheet" href="../../assets/admin.css">
+<link rel="stylesheet" href="../../assets/vendors/select2/select2.min.css">
+
 <style>
   .dropdown-item:hover,
   .dropdown-item:focus {
@@ -9,6 +13,7 @@
     overflow-y: hidden;
   }
 </style>
+
 <!-- partial -->
 <div class="main-panel">
   <div class="content-wrapper">
@@ -29,7 +34,7 @@
           <div class="card-body">
             <h4 class="card-title">Basic course elements</h4>
             <form
-              action="/admin/forms"
+              action="/admin/update_course/<%= course._id %>"
               method="post"
               class="forms-sample"
               autocomplete="off"
@@ -43,6 +48,7 @@
                   name="instructors"
                   id="exampleInputInstructors"
                   placeholder="Instructors"
+                  value="<%= course.instructors %>"
                   required
                 />
               </div>
@@ -53,6 +59,7 @@
                   class="form-control"
                   id="exampleInputTitle"
                   name="title"
+                  value="<%= course.title %>"
                   placeholder="Name"
                 />
               </div>
@@ -63,6 +70,7 @@
                   class="form-control"
                   id="exampleInputOverview"
                   name="overview"
+                  value="<%= course.title %>"
                   placeholder="Overview"
                 />
               </div>
@@ -78,20 +86,62 @@
                   name="collections"
                   aria-label="size 3 select example"
                 >
-                  <option value="All">All</option>
-                  <option value="Performance">Performance</option>
-                  <option value="Build excellent websites">
-                    Build excellent websites
+                
+                  <option value="All"
+                  <% for (let i = 0; i < course.collections.length; i++) { %>
+                    <% if ( course.collections[i] == 'All') { %> 
+                      <%= 'selected' %> 
+                    <% } %>
+                  <% } %>
+                  >All</option>
+                  <option value="Performance"
+                  <% for (let i = 0; i < course.collections.length; i++) { %>
+                    <% if ( course.collections[i] == 'Performance') { %> 
+                      <%= 'selected' %> 
+                    <% } %>
+                  <% } %>
+                  >Performance</option>
+                  <option value="Build excellent websites"
+                  <% for (let i = 0; i < course.collections.length; i++) { %>
+                    <% if ( course.collections[i] == 'Build excellent websites') { %> 
+                      <%= 'selected' %> 
+                    <% } %>
+                  <% } %>
+                  >Build excellent websites
                   </option>
-                  <option value="Frameworks">Frameworks</option>
-                  <option value="Lighthouse">Lighthouse</option>
-                  <option value="Explorations">Explorations</option>
-                  <option value="Challenger">Challenger</option>
+                  <option value="Frameworks"
+                  <% for (let i = 0; i < course.collections.length; i++) { %>
+                    <% if ( course.collections[i] == 'Frameworks') { %> 
+                      <%= 'selected' %> 
+                    <% } %>
+                  <% } %>
+                  >Frameworks</option>
+                  <option value="Lighthouse"
+                  <% for (let i = 0; i < course.collections.length; i++) { %>
+                    <% if ( course.collections[i] == 'Lighthouse') { %> 
+                      <%= 'selected' %> 
+                    <% } %>
+                  <% } %>
+                  >Lighthouse</option>
+                  <option value="Explorations"
+                  <% for (let i = 0; i < course.collections.length; i++) { %>
+                    <% if ( course.collections[i] == 'Explorations') { %> 
+                      <%= 'selected' %> 
+                    <% } %>
+                  <% } %>
+                  >Explorations</option>
+                  <option value="Challenger"
+                  <% for (let i = 0; i < course.collections.length; i++) { %>
+                    <% if ( course.collections[i] == 'Challenger') { %> 
+                      <%= 'selected' %> 
+                    <% } %>
+                  <% } %>
+                  >Challenger</option>
                 </select>
               </div>
               <div class="form-group">
                 <label>Image upload</label>
-                <input type="file" name="course" class="file-upload-default" />
+                <input type="file" name="course" value="<%= course.course %>" class="file-upload-default" />
                 <div class="input-group col-xs-12">
                   <input
                     type="text"
@@ -116,11 +166,31 @@
                   name="status"
                   id="exampleSelectStatus"
                 >
-                  <option>Pending</option>
-                  <option>In progress</option>
-                  <option>Fixed</option>
-                  <option>Completed</option>
-                  <option>Demo</option>
+                  <option 
+                    <% if (course.status == 'Pending') { %>
+                      <%= 'selected' %> 
+                    <% } %> 
+                  >Pending</option>
+                  <option
+                    <% if (course.status == 'In progress') { %>
+                      <%= 'selected' %> 
+                    <% } %> 
+                  >In progress</option>
+                  <option
+                    <% if (course.status == 'Fixed') { %>
+                      <%= 'selected' %> 
+                    <% } %> 
+                  >Fixed</option>
+                  <option
+                    <% if (course.status == 'Completed') { %>
+                      <%= 'selected' %> 
+                    <% } %> 
+                  >Completed</option>
+                  <option
+                    <% if (course.status == 'Demo') { %>
+                      <%= 'selected' %> 
+                    <% } %> 
+                  >Demo</option>
                 </select>
               </div>
               <div class="form-group">
@@ -130,7 +200,7 @@
                   id="exampleTextarea1"
                   rows="6"
                   name="description"
-                ></textarea>
+                ><%= course.description %></textarea>
               </div>
               <div class="form-group">
                 <label for="exampleTextarea1">Table of Content</label>
@@ -139,7 +209,7 @@
                   id="exampleTextarea1"
                   rows="12"
                   name="tableContent"
-                ></textarea>
+                ><% for(var i=0; i<course.tableOfContents.length; i++) { var tags_array = course.tableOfContents[i]; tags_array = tags_array.split(','); for(var j = 0; j < tags_array.length; j++){%><%= tags_array[j] + "\r\n" %><%}%><%}%></textarea>
               </div>
 
               <button type="submit" class="btn btn-primary mr-2">Submit</button>
@@ -178,5 +248,5 @@
 
 
   <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js" integrity="sha512-FHZVRMUW9FsXobt+ONiix6Z0tIkxvQfxtCSirkKc5Sb4TKHmqq1dZa8DphF0XqKb3ldLu/wgMa8mT6uXiLlRlw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> -->
-  <script src="../assets/js/multiple-select.js"></script>
+  <script src="../../assets/js/multiple-select.js"></script>
 </div>

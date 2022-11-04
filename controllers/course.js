@@ -63,7 +63,7 @@ const getAllUser = async (req, res, next) => {
   }
 }
 
-const fetchAllCategories = async (req, res, next) => {
+const fetchAllBlog = async (req, res, next) => {
   try{
     const blogs = await Blog.find({})
     res.render("./admin/pages/tables/tables_blog", { layout: "admin/layout", blogs: blogs});
@@ -116,8 +116,53 @@ const createCourse = (uploadCourse, (req, res) => {
   }
 });
 
-const getTask = (req, res) => {
-  res.send("get course");
+const getCourse = (req, res) => {
+  let id = req.params.id;
+  Course.findById(id, (error, course) => {
+    if(error) {
+      res.redirect('/tables_course')
+    }
+    else{
+      if(course == null) {
+        res.redirect('/tables_course')
+      }
+      else{
+        res.render('./admin/pages/update/edit_course', { layout: "admin/layout", course: course})
+      }
+    }
+  })
+};
+const getBlog = (req, res) => {
+  let id = req.params.id;
+  Blog.findById(id, (error, blog) => {
+    if(error) {
+      res.redirect('/tables_blog')
+    }
+    else{
+      if(blog == null) {
+        res.redirect('/tables_blog')
+      }
+      else{
+        res.render('./admin/pages/update/edit_blog', { layout: "admin/layout", blog: blog})
+      }
+    }
+  })
+};
+const getCategories = (req, res) => {
+  let id = req.params.id;
+  Categories.findById(id, (error, categories) => {
+    if(error) {
+      res.status(500).json({msg: error});
+    }
+    else{
+      if(categories == null) {
+        res.status(500).json({msg: error});
+      }
+      else{
+        res.render('./admin/pages/update/edit_categories', { layout: "admin/layout", categories: categories})
+      }
+    }
+  })
 };
 const updateTask = (req, res) => {
   res.send("update course");
@@ -129,10 +174,12 @@ const deleteTask = (req, res) => {
 module.exports = {
   getAllCourses,
   getAllCategories,
-  fetchAllCategories,
+  fetchAllBlog,
   getAllUser,
   createCourse,
-  getTask,
+  getCategories,
+  getBlog,
+  getCourse,
   updateTask,
   deleteTask,
   getAllBlog
