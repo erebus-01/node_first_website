@@ -1,4 +1,15 @@
-
+<style>
+  .max-lines {
+    display: block; /* or inline-block */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 4.5em;
+    line-height: 1.5em;
+    max-width: 100%;
+  }
+</style>
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
@@ -12,7 +23,7 @@
               </nav>
             </div>
             <div class="row">
-              <div class="col-lg-6 grid-margin stretch-card">
+              <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Basic Table</h4>
@@ -22,50 +33,48 @@
                       <table class="table">
                         <thead>
                           <tr>
-                            <th>Profile</th>
-                            <th>VatNo.</th>
-                            <th>Created</th>
+                            <th>Instructors</th>
+                            <th>Title</th>
+                            <th>Overview</th>
+                            <th>Course</th>
                             <th>Status</th>
+                            <th>Create Date</th>
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <td>Jacob</td>
-                            <td>53275531</td>
-                            <td>12 May 2017</td>
-                            <td><label class="badge badge-danger">Pending</label></td>
-                          </tr>
-                          <tr>
-                            <td>Messsy</td>
-                            <td>53275532</td>
-                            <td>15 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
-                          <tr>
-                            <td>John</td>
-                            <td>53275533</td>
-                            <td>14 May 2017</td>
-                            <td><label class="badge badge-info">Fixed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Peter</td>
-                            <td>53275534</td>
-                            <td>16 May 2017</td>
-                            <td><label class="badge badge-success">Completed</label></td>
-                          </tr>
-                          <tr>
-                            <td>Dave</td>
-                            <td>53275535</td>
-                            <td>20 May 2017</td>
-                            <td><label class="badge badge-warning">In progress</label></td>
-                          </tr>
+                          <% courses.forEach(post => { %>
+                            <tr>
+                              <td><%= post.instructors %></td>
+                              <td style="max-width: 300px"> <span class="max-lines"><%= post.title %></span> </td>
+                              <td style="max-width: 300px"> <span class="max-lines"><%= post.overview %></span> </td>
+                              <td style="max-width: 300px"> <span class="max-lines"><%= post.course %></span> </td>
+                              <td>
+                                <% if (post.status === 'Pending') { %>
+                                  <label class="badge badge-danger">Pending</label> 
+                                <% } %>
+                                <% if (post.status === 'In progress') { %>
+                                  <label class="badge badge-warning">In progress</label> 
+                                <% } %>
+                                <% if (post.status === 'Fixed') { %>
+                                  <label class="badge badge-info">Fixed</label> 
+                                <% } %>
+                                <% if (post.status === 'Completed') { %>
+                                  <label class="badge badge-success">Completed</label> 
+                                <% } %>
+                                <% if (post.status === 'Demo') { %>
+                                  <label class="badge badge-primary">Demo</label> 
+                                <% } %>
+                              </td>
+                              <td><span class="dateFormat"><%= post.createDate %></span></td>
+                            </tr>
+                          <% }) %>
                         </tbody>
-                      </table>
+                      </table>  
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="col-lg-6 grid-margin stretch-card">
+              <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
                     <h4 class="card-title">Hoverable Table</h4>
@@ -461,3 +470,18 @@
             </div>
           </div>
           
+
+          <script>
+            var dataString = document.querySelectorAll(".dateFormat").forEach(function(elem){
+              var dateOuter = elem.outerText
+              var today = new Date(dateOuter);
+              var dayFormat = today.toLocaleDateString();
+              elem.innerHTML = dayFormat
+            });
+            // console.log(dataString.innerText)
+            // const dateOuter = dataString.outerText
+            // const today = new Date(dateOuter);
+            // dayFormat = today.toLocaleDateString();
+            console.log(dataString)
+            // document.getElementById("dateFormat").innerHTML = dayFormat;
+          </script>

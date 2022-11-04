@@ -4,6 +4,10 @@ const BlogSchema = new mongoose.Schema({
     type: String,
     require: true
   },
+  imageBlog: {
+    type: String,
+    require: true
+  },
   content: {
     type: String,
     require: true
@@ -16,14 +20,10 @@ const BlogSchema = new mongoose.Schema({
     type: String,
     require: true
   },
-  collections: {
+  collections: [{
     type: String,
     require: true
-  },
-  authorImage: {
-    type: String,
-    require: true
-  },
+  }],
   createDate: {
     type: Date,
     require: true,
