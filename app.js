@@ -35,6 +35,12 @@ app.use(session({
   saveUninitialized: true,
 }))
 
+app.use((req, res, next) => {
+  res.locals.session = req.session.message;
+  delete req.session.message;
+  next();
+})
+
 //passport
 app.use(passport.initialize());
 app.use(passport.session());

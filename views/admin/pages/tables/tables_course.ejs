@@ -29,6 +29,7 @@
                     <h4 class="card-title">Basic Table</h4>
                     <p class="card-description"> Add class <code>.table</code>
                     </p>
+                    <%- include ("../../partials/messages") %>  
                     <div class="table-responsive">
                       <table class="table">
                         <thead>
@@ -68,7 +69,7 @@
                               <td><span class="dateFormat"><%= post.createDate %></span></td>
                               <td>
                                 <a href="edit_course/<%= post._id %>" class="btn btn-success">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="delete_course/<%= post._id %>" class="btn btn-danger">Delete</a>
                               </td>
                             </tr>
                           <% }) %>

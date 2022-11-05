@@ -28,6 +28,7 @@
         <div class="card">
           <div class="card-body">
             <h4 class="card-title">Basic blog elements</h4>
+            <%- include ("../../partials/messages") %>
             <form
               action="/admin/blog"
               method="post"
@@ -102,16 +103,6 @@
                   placeholder="Author"
                 />
               </div>
-
-              <!-- <div class="form-group">
-                <label for="exampleTextarea1">Collections</label>
-                <textarea
-                  class="form-control"
-                  id="exampleTextarea1"
-                  rows="12"
-                  name="collections"
-                ></textarea>
-              </div> -->
               <div class="form-group">
                 <label for="exampleTextarea1">Description</label>
                 <textarea

@@ -29,6 +29,7 @@
                     <h4 class="card-title">Basic Table</h4>
                     <p class="card-description"> Add class <code>.table</code>
                     </p>
+                    <%- include ("../../partials/messages") %>
                     <div class="table-responsive">
                       <table class="table">
                         <thead>
@@ -48,6 +49,9 @@
                               <td><%= user.dsName %></td>
                               <td><%= user.email %></td>
                               <td><span class="dateFormat"><%= user.date %></span></td>
+                              <td>
+                                <a href="delete_user/<%= user._id %>" class="btn btn-danger">Delete</a>
+                              </td>
                             </tr>
                           <% }) %>
                         </tbody>

@@ -34,31 +34,30 @@
           <div class="card-body">
             <h4 class="card-title">Basic course elements</h4>
             <form
-              action="/admin/update_course/<%= categories._id %>"
+              action="/admin/update_categories/<%= categories._id %>"
               method="post"
               class="forms-sample"
               autocomplete="off"
-              enctype="multipart/form-data"
+              enctype="application/x-www-form-urlencoded"
             >
               <div class="form-group">
-                <label for="exampleInputInstructors">Instructors</label>
+                <label for="exampleInputInstructors">Tags</label>
                 <input
                   type="text"
                   class="form-control"
-                  name="instructors"
+                  name="tags"
                   id="exampleInputInstructors"
                   placeholder="Instructors"
                   value="<%= categories.tags %>"
-                  required
                 />
               </div>
               <div class="form-group">
-                <label for="exampleTextarea1">Description</label>
+                <label for="exampleTextarea1">Content</label>
                 <textarea
                   class="form-control"
                   id="exampleTextarea1"
                   rows="6"
-                  name="description"
+                  name="content"
                 ><%= categories.content %></textarea>
               </div>
 

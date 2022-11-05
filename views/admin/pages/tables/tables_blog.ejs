@@ -29,6 +29,7 @@
                     <h4 class="card-title">Basic Table</h4>
                     <p class="card-description"> Add class <code>.table</code>
                     </p>
+                    <%- include ("../../partials/messages") %>
                     <div class="table-responsive">
                       <table class="table">
                         <thead>
@@ -45,14 +46,14 @@
                           <% blogs.forEach(blog => { %>
                             <tr>
                               <td><span><%= blog.author %></span></td>
-                              <td><%= blog.title %></td>
+                              <td style="max-width: 200px"> <span class="max-lines"><%= blog.title %></span></td>
                               <td style="max-width: 300px"> <span class="max-lines"><%= blog.content %></span> </td>
                               <td style="max-width: 300px"> <span class="max-lines"><%= blog.description %></span> </td>
                               <td style="max-width: 300px"> <span class="max-lines"><%= blog.collections %></span> </td>
                               <td><span class="dateFormat"><%= blog.createDate %></span></td>
                               <td>
-                                <a href="edit_course/<%= blog._id %>" class="btn btn-success">Edit</a>
-                                <a href="" class="btn btn-danger">Delete</a>
+                                <a href="edit_blog/<%= blog._id %>" class="btn btn-success">Edit</a>
+                                <a href="delete_blog/<%= blog._id %>" class="btn btn-danger">Delete</a>
                               </td>
                             </tr>
                           <% }) %>
