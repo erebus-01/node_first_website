@@ -1,0 +1,159 @@
+<link rel="stylesheet" href="../assets/cssStyle/Blog.css">
+<style>
+  h1, h2, h3 {
+    max-width: 30ch;
+  }
+
+  h1 {
+    font-size: clamp(1.75rem, 1.39rem + 1.79vw, 3rem);
+  }
+</style>
+<main id="main">
+  <img
+    src="https://web-dev.imgix.net/image/kheDArv5csY6rvQUJDbWRscckLr1/Gld0PunAHpxPzZSTPWDv.jpg"
+    class="hero-image"
+    alt=""
+  />
+  <div class="post wrapper" data-flush>
+    <div class="sidebar region flex-align-start flex-dir-rev flex-wrap-no">
+      <nav
+        aria-label="On this page"
+        class="course__toc toc over-scroll hidden-yes xl:hidden-no"
+        data-type="side"
+      >
+        <div class="course-toc__heading font-google-sans weight-medium">
+          On this page
+        </div>
+        <div class="toc__wrapper flow-recursive">
+          <ul class="toc__list">
+            <li class="toc__listitem">
+              <a
+                class="toc__anchor w-scroll-spy__active"
+                href="#stable-browser-releases"
+                >Stable browser releases</a
+              >
+              <ul class="toc__list">
+                <li class="toc__listitem">
+                  <a class="toc__anchor" href="#
+                    >Animation of grid tracks</a
+                  >
+                </li>
+                <li class="toc__listitem">
+                  <a
+                    class="toc__anchor"
+                    href="#"
+                    >Additions to getDisplayMedia()</a
+                  >
+                </li>
+                <li class="toc__listitem">
+                  <a
+                    class="toc__anchor"
+                    href="#"
+                    >Testing for support of font technology and features
+                    from CSS</a
+                  >
+                </li>
+                <li class="toc__listitem">
+                  <a class="toc__anchor" href="#"
+                    >Scroll to text fragment</a
+                  >
+                </li>
+                <li class="toc__listitem">
+                  <a class="toc__anchor" href="#"
+                    >AVIF support</a
+                  >
+                </li>
+                <li class="toc__listitem">
+                  <a class="toc__anchor" href="#"
+                    >Web Push for Safari</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li class="toc__listitem">
+              <a class="toc__anchor" href="#"
+                >Beta browser releases</a
+              >
+            </li>
+          </ul>
+        </div>
+      </nav>
+      <article class="prose legacy-rollout">
+        <header class="flow gap-bottom-size-3">
+          <nav class="breadcrumbs">
+            <ul class="breadcrumbs__list" role="list">
+              <li>
+                <a
+                  data-label="post, home breadcrumb"
+                  class="gc-analytics-event"
+                  data-action="click"
+                  data-category="web.dev"
+                  href="/"
+                >
+                  Home
+                </a>
+              </li>
+              <li>
+                <a
+                  data-label="post, path breadcrumb"
+                  class="gc-analytics-event"
+                  data-action="click"
+                  data-category="web.dev"
+                  href="/blog"
+                >
+                  All articles
+                </a>
+              </li>
+            </ul>
+          </nav>
+          <h1>New to the web platform in October</h1>
+          <p>
+            Discover some of the interesting features that landed in stable
+            and beta web browsers during October 2022.
+          </p>
+          <div class="flow-space-size-1 color-mid-text text-size-0">
+            <time>Oct 31, 2022</time>
+          </div>
+          <h3 id="animation-of-grid-tracks">Animation of grid tracks</h3>
+          <p>
+            Safari 16.1 brings Web Push support to Safari on macOS Ventura.
+            This uses the Push API and Notifications API, you can read more
+            about this in the article
+            <a
+              href="https://webkit.org/blog/12945/meet-web-push/"
+              rel="noopener"
+              >Meet Web Push</a
+            >. Web Push landing in Safari means that it is now available
+            across all three major engines.
+          </p>
+        </header>
+      </article>
+    </div>
+  </div>
+</main>
+
+
+<script
+  src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+  integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+  integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+  crossorigin="anonymous"
+></script>
+
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+  integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+></script>
+<script>
+  $(document).ready(function(){
+    $("#showIcon").click(function(){
+      $("#menu-customer").toggleClass("show");
+    });
+  });
+</script>

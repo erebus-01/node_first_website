@@ -1,0 +1,733 @@
+<link rel="stylesheet" href="../assets/cssStyle/DetailCourse.css">
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
+      integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="../assets/cssStyle/HomeStyle.css">
+    <link rel="stylesheet" href="../assets/cssStyle/DetailCourse.css">
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="icon-menu">
+      <div class="menu-items" id="menu-customer">
+        <div class="sok-Button btn-position sok-ControllsOverlay-menu-item" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="svg-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <div class="sok-Button btn-position sok-ControllsOverlay-menu-item" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="svg-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+          </svg>
+        </div>
+        <a class="sok-Button btn-position" href="#" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="svg-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+          </svg>
+        </a>
+        <a class="sok-Button btn-position position-relative" href="#" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="svg-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+          </svg>
+          <span class="count">5</span>
+        </a>
+        <a class="sok-Button btn-position" href="#" target="_blank">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="svg-icon">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15m3 0l3-3m0 0l-3-3m3 3H9" />
+          </svg>
+        </a>
+      </div>
+      <button class="sok-Button" id="showIcon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="svg-icon">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+        </svg>
+      </butt>
+    </div>
+    <div class="course">
+      <div class="sidebar">
+        <div class="course__sidebar">
+          <web-navigation-drawer type="standard" tabindex="-1">
+            <nav
+              class="course__drawer flow"
+              data-drawer-container
+              style="width: 100%"
+            >
+              <div
+                class="course__header"
+                style="
+                  --course-background: url('https://web.dev/images/courses/accessibility/background.svg');
+                "
+              ></div>
+              <form class="d-flex px-3" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+              </form>
+              <div class="over-scroll mt-3">
+                <course-links>
+                  <ul class="stack-nav">
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span
+                            >Pattern or component evaluation and testing</span
+                          >
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                    <li>
+                      <a
+                        aria-current="page"
+                        class="repel"
+                        href="#"
+                        data-complete="true"
+                      >
+                        <span class="cluster">
+                          <span class="stack-nav__meta">000</span>
+                          <span>Learn Accessibility</span>
+                        </span>
+                        <span class="cluster">
+                          <svg
+                            viewBox="0 0 24 24"
+                            aria-label="Check"
+                            class="icon"
+                            fill="currentColor"
+                            height="24"
+                            role="img"
+                            width="24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z"
+                            ></path>
+                          </svg>
+                        </span>
+                      </a>
+                    </li>
+                  </ul>
+                </course-links>
+              </div>
+            </nav>
+          </web-navigation-drawer>
+        </div>
+        <div class="course__main">
+          <nav class="breadcrumbs pad-inline-size-1" aria-label="breadcrumbs">
+            <div class="repel">
+              <ul class="breadcrumbs__list" role="list">
+                <li>
+                  <a href="/">
+                    <svg
+                      viewBox="0 0 119.79 22.32"
+                      aria-label="web.dev"
+                      class="breadcrumbs__brand"
+                      height="22.32"
+                      role="img"
+                      width="119.79"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <path
+                        d="M114.99 19.32h-2.2l-4.8-11.9h2.4l3.5 9.2 3.5-9.2h2.4Zm-16.8-7.3h6.8a3.17 3.17 0 0 0-3.4-2.9 3.42 3.42 0 0 0-3.4 2.9Zm3.6 7.7a6 6 0 0 1-6-6.3c0-3.6 2.5-6.3 5.9-6.3s5.8 2.4 5.8 6.5v.2h-9.3a3.88 3.88 0 0 0 3.8 3.9 3.56 3.56 0 0 0 3.3-2.1l2 1a6.22 6.22 0 0 1-5.5 3.1Zm-14 0c-3.1 0-5.7-2.8-5.7-6.3s2.6-6.3 5.7-6.3a5 5 0 0 1 4.1 2h.1l-.1-1.6v-5.5h2.2v17.3h-2.1v-1.6h-.1a5.12 5.12 0 0 1-4.1 2Zm.3-2c2.2 0 3.8-1.7 3.8-4.3s-1.6-4.3-3.8-4.3a4 4 0 0 0-3.8 4.3 4 4 0 0 0 3.8 4.3Zm-6.8.1a1.61 1.61 0 0 1-1.7 1.6 1.74 1.74 0 0 1-1.7-1.6 1.67 1.67 0 0 1 1.7-1.6 1.61 1.61 0 0 1 1.7 1.6Zm-10.5-.1a4 4 0 0 0 3.8-4.3 4 4 0 0 0-3.8-4.3c-2.2 0-3.8 1.8-3.8 4.3s1.6 4.3 3.8 4.3Zm.4 2a5 5 0 0 1-4.1-2h-.1v1.6h-2.1V2.02h2.2v5.5l-.1 1.6h.1a4.84 4.84 0 0 1 4.1-2c3.1 0 5.7 2.8 5.7 6.3s-2.6 6.3-5.7 6.3Zm-17.4-7.7h6.8a3.17 3.17 0 0 0-3.4-2.9 3.42 3.42 0 0 0-3.4 2.9Zm3.6 7.7a6 6 0 0 1-6-6.3c0-3.6 2.5-6.3 5.9-6.3s5.8 2.4 5.8 6.5v.2h-9.3a3.88 3.88 0 0 0 3.8 3.9 3.67 3.67 0 0 0 3.3-2.1l2 1a6.22 6.22 0 0 1-5.5 3.1Zm-6.3-12.2-3.8 11.9h-2.3l-3-9.1-2.9 9.1h-2.3l-3.9-11.9h2.3l2.6 9 2.9-9h2.3l2.9 9 2.6-9Z"
+                        class="brand__text"
+                        fill="#5f6368"
+                        fill-rule="evenodd"
+                      ></path>
+                      <path
+                        d="M0 19.28a3 3 0 0 1 3-3h16.27a3.045 3.045 0 0 1 0 6.09H3.04A3 3 0 0 1 0 19.28Z"
+                        fill="#6cf"
+                      ></path>
+                      <path
+                        d="M.89.9a3 3 0 0 1 4.3 0l8.12 8.11a3.05 3.05 0 0 1 0 4.3l-8.12 8.12a3.04 3.04 0 1 1-4.3-4.3l5.6-5.61a.51.51 0 0 0 0-.72L.89 5.22A3 3 0 0 1 .89.9Z"
+                        fill="#06f"
+                        fill-rule="evenodd"
+                      ></path>
+                      <path
+                        d="m10.39 16.22-5.2 5.2a3.04 3.04 0 1 1-4.3-4.3l.89-.9Z"
+                        fill="#c6f"
+                      ></path>
+                      <circle
+                        cx="19.27"
+                        cy="19.27"
+                        fill="#06f"
+                        r="3.04"
+                      ></circle>
+                    </svg>
+                  </a>
+                </li>
+                <li><a href="/learn/">Learn</a></li>
+                <li><a href="/learn/accessibility">Learn Accessibility</a></li>
+              </ul>
+              <a href="" class="button button-blue">Add to cart</a>
+            </div>
+          </nav>
+
+          <div class="gap-top-size-2">
+            <div class="sidebar flex-align-start flex-dir-rev flex-wrap-no">
+              <nav
+                aria-label="On this page"
+                class="course__toc toc over-scroll hidden-yes xl:hidden-no"
+                data-type="side"
+              >
+                <div class="course-toc__heading font-google-sans weight-medium">
+                  On this page
+                </div>
+                <web-scroll-spy>
+                  <div class="toc__wrapper flow-recursive">
+                    <ul class="toc__list">
+                      <li class="toc__listitem">
+                        <a
+                          class="toc__anchor w-scroll-spy__active"
+                          href="#welcome-to-learn-accessibility"
+                          >Welcome to Learn Accessibility!</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                  <!----></web-scroll-spy
+                >
+              </nav>
+              <main id="main">
+                <div class="prose">
+                  <div class="course__intro flow">
+                    <div class="eyebrow">000</div>
+                    <h1>Learn Accessibility</h1>
+                    <div class="color-mid-text unstyled-code">
+                      An evergreen accessibility course and reference to level
+                      up your web development.
+                    </div>
+                  </div>
+                </div>
+                <div class="prose gap-top-size-2">
+                  <h2 id="welcome-to-learn-accessibility">
+                    Welcome to Learn Accessibility!
+                  </h2>
+                  <p>
+                    This course is created for beginner and advanced web
+                    developers. You can go through the series from start to
+                    finish to get a general understanding of accessibility
+                    practices and testing, or you can use it as a reference for
+                    specific subjects. If you read an unfamiliar term, refer to
+                    our <a href="/learn/accessibility/glossary">glossary</a>.
+                    For those new to web development overall, check out the
+                    <a href="/learn/html">Learn HTML</a> courses for
+                    fundamentals with markup and
+                    <a href="/learn/css">Learn CSS</a> courses for styling
+                    fundamentals.
+                  </p>
+                </div>
+              </main>
+            </div>
+          </div>
+          <div class="gap-top-size-2"></div>
+          <footer class="site-footer">
+            <div class="grid site-footer__primary-nav">
+              <div class="g-col-6 g-col-md-4">
+                <h3 class="text-size-1 text-gray">Contribute</h3>
+                <ul>
+                  <li><a href="">File a bug</a></li>
+                  <li><a href="">View source</a></li>
+                </ul>
+              </div>
+              <div class="g-col-6 g-col-md-4">
+                <h3 class="text-size-1 text-gray">Related content</h3>
+                <ul>
+                  <li><a href="">developer.chrome.com</a></li>
+                  <li><a href="">Chrome updates</a></li>
+                  <li><a href="">Case studies</a></li>
+                  <li><a href="">Podcasts</a></li>
+                  <li><a href="">Shows</a></li>
+                </ul>
+              </div>
+              <div class="g-col-6 g-col-md-4">
+                <h3 class="text-size-1 text-gray">Connect</h3>
+                <ul>
+                  <li><a href="">Twitter</a></li>
+                  <li><a href="">YouTube</a></li>
+                </ul>
+              </div>
+            </div>
+            <div class="site_footer-brand">
+              <ul class="cluster">
+                <li>
+                  <a href=""
+                    ><img
+                      alt="Google Developers"
+                      class="w-footer__utility-logo"
+                      height="33"
+                      loading="lazy"
+                      src="https://web.dev/images/lockup-color.png"
+                      width="185"
+                  /></a>
+                </li>
+                <li><a href=""> Chrome </a></li>
+                <li><a href=""> Firebase </a></li>
+                <li><a href=""> Google Cloud Platform </a></li>
+                <li><a href=""> All products </a></li>
+              </ul>
+            </div>
+            <div class="site misc">
+              <ul class="cluster">
+                <li><a href=""> Terms & Privacy </a></li>
+                <li><a href=""> Community Guidelines </a></li>
+              </ul>
+            </div>
+            <p class="gap-top-size-2 text-size-0">
+              Except as otherwise noted, the content of this page is licensed
+              under the
+              <a href="" class="link-form">
+                Creative Commons Attribution 4.0 License</a
+              >
+              , and code samples are licensed under the
+              <a href="" class="link-form"> Apache 2.0 License</a>
+              . For details, see the
+              <a href="" class="link-form"> Google Developers Site Policies </a>
+            </p>
+          </footer>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+      integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+      integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+      integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      $(document).ready(function(){
+        $("#showIcon").click(function(){
+          $("#menu-customer").toggleClass("show");
+        });
+      });
+    </script>
+  </body>
+</html>
+
