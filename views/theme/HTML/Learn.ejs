@@ -14,12 +14,13 @@
   <section id="features" class="bg-gray">
     <div class="content">
       <div class="slider responsive">
+        <% courseSlide.forEach(post => { %>
         <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
+          <a href="/learn/<%= post._id %>" data-style="branded" class="card">
             <div class="card_header repel">
               <p class="text-gray">Course</p>
               <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
+                <span class="span-counter"><%= post.price %>$ / </span>
                 <svg
                   viewBox="0 0 24 24"
                   aria-label="mortarboard"
@@ -41,497 +42,16 @@
             </div>
             <img
               alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
+              src="./uploads/course/<%= post.course %>"
             />
-            <div class="card_content flow">
+            <div class="card_content text-overview flow">
               <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
+                <%= post.overview %>
               </p>
             </div>
           </a>
         </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="col-md-4">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg
-                  viewBox="0 0 24 24"
-                  aria-label="mortarboard"
-                  class="icon"
-                  fill="currentColor"
-                  height="24"
-                  role="img"
-                  width="24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"
-                  ></path>
-                  <path
-                    d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"
-                  ></path>
-                </svg>
-              </div>
-            </div>
-            <img
-              alt="i18n.courses.learn_design.title branding"
-              src="../assets/svg/css.svg"
-            />
-            <div class="card_content flow">
-              <p class="text-size-0">
-                Let's explore all aspects of responsive design, learning how
-                to make sites that look great and work well for everyone.
-              </p>
-            </div>
-          </a>
-        </div>
+        <% }) %>
       </div>
     </div>
   </section>
@@ -553,54 +73,24 @@
       <div class="wrapper">
         <h2 class="text-size-2">Performance</h2>
         <div class="auto-grid gap-top-size-2">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+          <% performance.forEach(post => { %>
+            <a href="/learn/<%= post._id %>" data-style="branded" class="card">
+              <div class="card_header repel">
+                <p class="text-gray">Collection</p>
+                <div class="counter bg-card-primary text-white">
+                  <span class="span-counter"><%= post.price %>$ / </span>
+                  <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+                </div>
               </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+              <img alt="i18n.courses.learn_design.title branding" src="./uploads/course/<%= post.course %>">
+              <div class="card_content flow">
+                <h3 class="card-heading text-size-2"><%= post.title %></h3>
+                <p class="text-size-0">
+                  <%= post.overview %>
+                </p>
               </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
+            </a>
+          <% }) %>
         </div>
       </div>
     </div>
@@ -608,166 +98,24 @@
       <div class="wrapper">
         <h2 class="text-size-2">Build excellent websites</h2>
         <div class="auto-grid gap-top-size-2">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+          <% build.forEach(post => { %>
+            <a href="/learn/<%= post._id %>" data-style="branded" class="card">
+              <div class="card_header repel">
+                <p class="text-gray">Collection</p>
+                <div class="counter bg-card-primary text-white">
+                  <span class="span-counter"><%= post.price %>$ / </span>
+                  <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+                </div>
               </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+              <img alt="i18n.courses.learn_design.title branding" src="./uploads/course/<%= post.course %>">
+              <div class="card_content flow">
+                <h3 class="card-heading text-size-2"><%= post.title %></h3>
+                <p class="text-size-0">
+                  <%= post.overview %>
+                </p>
               </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
+            </a>
+          <% }) %>
         </div>
       </div>
     </div>
@@ -775,38 +123,24 @@
       <div class="wrapper">
         <h2 class="text-size-2">Frameworks</h2>
         <div class="auto-grid gap-top-size-2">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+          <% framework.forEach(post => { %>
+            <a href="/learn/<%= post._id %>" data-style="branded" class="card">
+              <div class="card_header repel">
+                <p class="text-gray">Collection</p>
+                <div class="counter bg-card-primary text-white">
+                  <span class="span-counter"><%= post.price %>$ / </span>
+                  <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+                </div>
               </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+              <img alt="i18n.courses.learn_design.title branding" src="./uploads/course/<%= post.course %>">
+              <div class="card_content flow">
+                <h3 class="card-heading text-size-2"><%= post.title %></h3>
+                <p class="text-size-0">
+                  <%= post.overview %>
+                </p>
               </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
+            </a>
+          <% }) %>
         </div>
       </div>
     </div>
@@ -814,86 +148,24 @@
       <div class="wrapper">
         <h2 class="text-size-2">Lighthouse</h2>
         <div class="auto-grid gap-top-size-2">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+          <% lighthouse.forEach(post => { %>
+            <a href="/learn/<%= post._id %>" data-style="branded" class="card">
+              <div class="card_header repel">
+                <p class="text-gray">Collection</p>
+                <div class="counter bg-card-primary text-white">
+                  <span class="span-counter"><%= post.price %>$ / </span>
+                  <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+                </div>
               </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+              <img alt="i18n.courses.learn_design.title branding" src="./uploads/course/<%= post.course %>">
+              <div class="card_content flow">
+                <h3 class="card-heading text-size-2"><%= post.title %></h3>
+                <p class="text-size-0">
+                  <%= post.overview %>
+                </p>
               </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
-              </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
+            </a>
+          <% }) %>
         </div>
       </div>
     </div>
@@ -901,22 +173,24 @@
       <div class="wrapper">
         <h2 class="text-size-2">Explorations</h2>
         <div class="auto-grid gap-top-size-2">
-          <a href="" data-style="branded" class="card">
-            <div class="card_header repel">
-              <p class="text-gray">Course</p>
-              <div class="counter bg-card-primary text-white">
-                <span class="span-counter">17</span>
-                <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+          <% explorations.forEach(post => { %>
+            <a href="/learn/<%= post._id %>" data-style="branded" class="card">
+              <div class="card_header repel">
+                <p class="text-gray">Collection</p>
+                <div class="counter bg-card-primary text-white">
+                  <span class="span-counter"><%= post.price %>$ / </span>
+                  <svg viewBox="0 0 24 24" aria-label="mortarboard" class="icon" fill="currentColor" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M12.51 3.47a1.29 1.29 0 0 0-1 0L3 7a1.33 1.33 0 0 0 0 2.44L11.49 13a1.38 1.38 0 0 0 1 0L21 9.44A1.33 1.33 0 0 0 21 7Z"></path><path d="M4.71 14.07a1.33 1.33 0 0 1 1.82-1.24l5 2a1.35 1.35 0 0 0 1 0l5-2a1.33 1.33 0 0 1 1.82 1.24v3.1a1.32 1.32 0 0 1-.88 1.25l-6 2.13a1.24 1.24 0 0 1-.89 0l-6-2.13a1.32 1.32 0 0 1-.88-1.25Z"></path></svg>
+                </div>
               </div>
-            </div>
-            <img alt="i18n.courses.learn_design.title branding" src="../assets/svg/responsive.svg">
-            <div class="card_content flow">
-              <h3 class="card-heading text-size-2">Core Web Vitals</h3>
-              <p class="text-size-0">
-                Essential metrics for a healthy site.
-              </p>
-            </div>
-          </a>
+              <img alt="i18n.courses.learn_design.title branding" src="./uploads/course/<%= post.course %>">
+              <div class="card_content flow">
+                <h3 class="card-heading text-size-2"><%= post.title %></h3>
+                <p class="text-size-0">
+                  <%= post.overview %>
+                </p>
+              </div>
+            </a>
+          <% }) %>
         </div>
       </div>
     </div>

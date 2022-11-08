@@ -15,83 +15,19 @@
   </div>
   <div class="region">
     <div class="wrapper auto-grid">
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">3D</a></h2>
-          <p>Our latest news, updates, and stories about 3D.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">Accessibility</a></h2>
-          <p>Our latest news, updates, and stories about Accessibility.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">AMP</a></h2>
-          <p>Our latest news, updates, and stories about Analytics.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">Animations</a></h2>
-          <p>Our latest news, updates, and stories about Animations.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">Audio</a></h2>
-          <p>Our latest news, updates, and stories about Audio.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">Augmented Reality</a></h2>
-          <p>Our latest news, updates, and stories about Augmented Reality.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">Capabilities</a></h2>
-          <p>Our latest news, updates, and stories about new web capabilities (aka Project Fugu).</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">Case Study</a></h2>
-          <p>Learn why and how other developers have used the web to create amazing web experiences for their users.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">Chrome UX Report</a></h2>
-          <p>Our latest news, updates, and stories about Chrome UX Report.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">Chrome 93</a></h2>
-          <p>Articles about features shipping in Chrome.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">Chrome 95</a></h2>
-          <p>Articles about features shipping in Chrome.</p>
-        </div>
-      </article>
-      <article class="card">
-        <div class="card__content flow">
-          <h2 class="card__heading text-size-3"><a href="#">3D</a></h2>
-          <p>Our latest news, updates, and stories about 3D.</p>
-        </div>
-      </article>
+      <% tags.forEach(tag => { %>
+        <article class="card">
+          <div class="card__content flow">
+            <h2 class="card__heading text-size-3"><a href="#"><%= tag.tags %></a></h2>
+            <p><%= tag.content %></p>
+          </div>
+        </article>
+      <% }) %>
     </div>
     <div class="wrapper gap-top-size-3">
       <nav class="pagination">
         <div class="pagination__container"></div>
-        <div class="pagination__status">Page 1 of 28</div>
+        <div class="pagination__status">Page 1 of <%= Math.ceil(tags.length / 16) %></div>
         <div class="pagination__container">
           <a href="" class="btn-next">Next</a>
         </div>

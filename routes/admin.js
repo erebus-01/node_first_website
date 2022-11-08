@@ -74,6 +74,7 @@ router.post('/forms', uploadCourse, (req, res) => {
     instructors: req.body.instructors,
     title: req.body.title,
     overview: req.body.overview,
+    price: req.body.price,
     collections: req.body.collections,
     course: req.file.filename,
     status: req.body.status,
@@ -85,6 +86,7 @@ router.post('/forms', uploadCourse, (req, res) => {
     !req.body.title || 
     !req.body.overview || 
     !req.body.collections || 
+    !req.body.price ||
     !req.file.filename || 
     !req.body.status || 
     !req.body.description
@@ -195,7 +197,8 @@ router.post('/update_blog/:id', uploadBlog, (req, res) => {
   
   const arrTable = req.body.tableContent
   const tableOfContent = arrTable.split('\r\n')
-
+  var filtered = tableOfContent.filter(elem => !!elem)
+  console.log(filtered)
   Blog.findByIdAndUpdate(id, {
     title: req.body.title,
     imageBlog: new_image,
@@ -203,7 +206,7 @@ router.post('/update_blog/:id', uploadBlog, (req, res) => {
     description: req.body.description,
     author: req.body.author,
     collections: req.body.collections,
-    tableOfContent: tableOfContent
+    tableOfContent: filtered
   }, (err, result) => {
     if(err) {
       req.flash('error_msg', 'Removed blog failed');
@@ -235,16 +238,18 @@ router.post('/update_course/:id', uploadCourse, (req, res) => {
   
   const arrTable = req.body.tableContent
   const tableOfContent = arrTable.split('\r\n')
+  var filtered = tableOfContent.filter(elem => !!elem)
 
   Course.findByIdAndUpdate(id, {
     instructors: req.body.instructors,
     title: req.body.title,
     overview: req.body.overview,
+    price: req.body.price,
     collections: req.body.collections,
     course: new_image,
     status: req.body.status,
     description: req.body.description,
-    tableOfContents: tableOfContent
+    tableOfContents: filtered
   }, (err, result) => {
     if(err) {
       req.flash('error_msg', 'Updated course failed');

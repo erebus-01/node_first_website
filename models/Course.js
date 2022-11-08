@@ -12,6 +12,10 @@ const CourseSchema = new mongoose.Schema({
     type: String,
     required: true
   },
+  price: {
+    type: mongoose.Types.Decimal128,
+    required: true
+  },
   collections: {
     type: Array,
     required: true

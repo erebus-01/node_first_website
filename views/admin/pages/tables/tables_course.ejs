@@ -37,6 +37,7 @@
                             <th>Instructors</th>
                             <th>Title</th>
                             <th>Overview</th>
+                            <th>Price</th>
                             <th>Course</th>
                             <th>Status</th>
                             <th>Create Date</th>
@@ -48,6 +49,7 @@
                               <td><%= post.instructors %></td>
                               <td style="max-width: 300px"> <span class="max-lines"><%= post.title %></span> </td>
                               <td style="max-width: 300px"> <span class="max-lines"><%= post.overview %></span> </td>
+                              <td style="max-width: 300px"> <span class="max-lines"><%= post.price %></span> </td>
                               <td style="max-width: 150px"> <span class="max-lines"><%= post.course %></span> </td>
                               <td>
                                 <% if (post.status === 'Pending') { %>

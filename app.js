@@ -22,7 +22,7 @@ mongoose.connect(db, {
 
 //ejs
 app.use('/assets', express.static('assets'))
-// app.use(express.static('uploads'))
+app.use('/uploads', express.static('uploads'))
 app.use(expressLayouts);
 app.set('view engine', 'ejs');
 app.set('adminLayout', './admin/layout')
