@@ -18,19 +18,19 @@
     <div class="wrapper auto-grid">
       <% blogs.forEach(blog => { %>
         <article class="card">
-          <a href="#" target="_blank" rel="noopener noreferrer">
-            <img class="card__hero" src="./uploads/blog/<%= blog.imageBlog %>" alt="">
+          <a href="/blog/<%= blog._id %>" target="_blank" rel="noopener noreferrer">
+            <img class="card__hero" src="../uploads/blog/<%= blog.imageBlog %>?auto=format&w=571" alt="">
           </a>
           <div class="card__content flow">
             <h2 class="card__heading text-size-3">
-              <a href="#"><%= blog.title %></a>
+              <a href="/blog/<%= blog._id %>"><%= blog.title %></a>
             </h2>
             <p>
               <%= blog.content %>
             </p>
           </div>
           <div class="gap-top-size-1">
-            <span><%= blog.author %> Oct 31, 2022</span>
+            <span><%= blog.author %> - Oct 31, 2022</span>
           </div>
           <div class="card__tags cluster gap-top-base">
             <% for (let i = 0; i < blog.collections.length; i++) {%>
@@ -42,10 +42,16 @@
     </div>
     <div class="wrapper gap-top-size-3">
       <nav class="pagination">
-        <div class="pagination__container"></div>
-        <div class="pagination__status">Page 1 of 28</div>
         <div class="pagination__container">
-          <a href="" class="btn-next">Next</a>
+          <% if (currentPage > 1) { %>
+            <a href="/blogs/<%= pageMinusOne %>" class="btn-next">Prev</a>
+          <% } %>
+        </div>
+        <div class="pagination__status">Page <%= pagePlusOne - 1 %> of <%= totalPages %></div>
+        <div class="pagination__container">
+          <% if (currentPage < totalPages) { %>
+            <a href="/blogs/<%= pagePlusOne %>" class="btn-next">Next</a>
+          <% } %>
         </div>
       </nav>
     </div>

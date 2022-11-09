@@ -26,10 +26,16 @@
     </div>
     <div class="wrapper gap-top-size-3">
       <nav class="pagination">
-        <div class="pagination__container"></div>
-        <div class="pagination__status">Page 1 of <%= Math.ceil(tags.length / 16) %></div>
         <div class="pagination__container">
-          <a href="" class="btn-next">Next</a>
+          <% if (currentPage > 1) { %>
+            <a href="/tags/<%= pageMinusOne %>" class="btn-next">Prev</a>
+          <% } %>
+        </div>
+        <div class="pagination__status">Page <%= pagePlusOne - 1 %> of <%= totalPages %></div>
+        <div class="pagination__container">
+          <% if (currentPage < totalPages) { %>
+            <a href="/tags/<%= pagePlusOne %>" class="btn-next">Next</a>
+          <% } %>
         </div>
       </nav>
     </div>
