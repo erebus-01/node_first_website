@@ -5,8 +5,7 @@ const bcrypt = require('bcryptjs');
 const Customer = require('../models/Customer');
 
 module.exports = function(passport) {
-  passport.use(
-    new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
+  passport.use('customer', new LocalStrategy({usernameField: 'email'}, (email, password, done) => {
       Customer.findOne({email: email})
         .then(customer => {
           if(!customer) {
@@ -27,13 +26,4 @@ module.exports = function(passport) {
         .catch(err => console.log(err));  
     })
   );
-  passport.serializeUser((customer, done) => {
-    done(null, customer.id);
-  });
-  
-  passport.deserializeUser((id, done) => {
-    Customer.findById(id, (err, customer) => {
-      done(err, customer);
-    })
-  });
 }

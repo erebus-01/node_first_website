@@ -8,11 +8,13 @@ const Blog = require('../models/Blog')
 const Categories = require('../models/Categories')
 const Course = require("../models/Course")
 const Customer = require('../models/Customer')
+const Cart = require('../models/Cart')
+const { ensureAuthenticated } = require('../config/Authenticated')
 
 router.get('/', async (req, res, next) => {
   try {
     const courseSlide = await Course.find({collections: 'Challenger'})
-    console.log(courseSlide)
+    // console.log(courseSlide)
     res.render("./theme/HTML/HomePage", {layout: 'theme/layout', courseSlide: courseSlide})
     next()
   }catch (err){
@@ -38,7 +40,7 @@ router.get('/learn', async (req, res, next) => {
       explorations: explorations, 
     }
 
-    console.log(courseSlide)
+    // console.log(courseSlide)
     res.render("./theme/HTML/Learn", context)
     next()
   }catch (err){
@@ -50,7 +52,7 @@ router.get('/tag/case-study/:page', async (req, res, next) => {
   const nextPage = 12
   try {
     const blogs = await Blog.find({collections: {$all: ['Case Study']}}).sort({"_id": -1}).skip((currentPage - 1) * nextPage).limit(nextPage).exec()
-    console.log(blogs)
+    // console.log(blogs)
     const count = await Blog.find({collections: {$all: ['Case Study']}}).count()
 
     let totalPages = Math.ceil(count / nextPage)
@@ -209,6 +211,63 @@ router.get('/blog/:id', async (req, res, next) => {
   }
 })
 
+router.post('/add-to-cart', ensureAuthenticated, (req, res, next) => {
+  const { product, price } = req.body 
+  console.log({ product, price }, req.user._id)
+
+  var ObjectId = require('mongodb').ObjectId; 
+  var idCustomer = req.user._id;
+  var str_id = idCustomer.toString()
+
+  Cart.find({"customer": req.user._id})
+  .exec((error, cart) => {
+    if(error) return res.status(500).json({msg: error})
+    if(cart){
+      let isExists = false
+      cart.forEach(item => {
+        item.cartItems.forEach(elem => {
+          if(elem.product == product) {
+            isExists = true
+          }
+          console.log(elem.product)
+        })
+      })
+
+      if (isExists) {
+        req.flash('error_msg', 'Course is existed in cart !!!');
+        res.redirect('/learn');
+      }
+      else {
+        Cart.findOneAndUpdate({"customer": req.user._id}, {
+          "$push": {
+            "cartItems": { product, price }
+          }
+        })
+        .exec((error, _cart) => {
+          if(error) return res.status(500).json({msg: error})
+          if(_cart) {
+            req.flash('success_msg', 'Successfully added the course to your cart !!!');
+            res.redirect('/learn');
+          }
+        })
+      }
+    }
+    else {
+      const newCart = new Cart({
+        customer: req.user._id,
+        cartItems: [product, price ]
+      });
+    
+      newCart.save().then(cart => {
+        req.flash('success_msg', 'Successfully added the course to your cart !!!');
+        res.redirect('/learn');
+      })
+      .catch(error => console.log(error));
+    }
+  })
+
+
+})
 
 router.get('/measure', (req, res) => {
   res.render("./theme/HTML/Measure", {layout: 'theme/layout'})
@@ -218,7 +277,7 @@ router.get('/login', (req, res) => {
   res.render("./theme/HTML/Login", {layout: 'theme/layout'})
 })
 router.post('/login' , (req, res, next) => {
-  passport.authenticate('local', {
+  passport.authenticate('customer', {
     successRedirect: '/',
     failureRedirect: '/login',
     failureFlash: true

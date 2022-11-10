@@ -1,0 +1,33 @@
+<% if(typeof err != "undefined") { %> 
+  <% err.forEach(function(error) { %>
+    <div class="box-err">
+      <h6 class="text-err">
+        <%= error.msg %>
+      </h6>
+    </div>
+  <% }); %>
+<% } %>
+
+
+<% if(success_msg != '') { %>
+  <div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>Success !!! </strong> <%= success_msg %>. Please select more courses
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+
+
+<% if(error_msg != '') { %>
+  <div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>Error !!! </strong> <%= error_msg %>. Try again
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  </div>
+<% } %>
+
+<% if(error != '') { %>
+  <div class="box-err">
+    <h6 class="text-err">
+      <%= error %>
+    </h6>
+  </div>
+<% } %>

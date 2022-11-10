@@ -2,6 +2,8 @@ const express = require('express');
 const router = express.Router();
 const fs = require('fs');
 const { ensureAuthenticated } = require('../config/auth')
+const bcrypt = require('bcryptjs');
+const passport = require('passport');
 
 const {
   getAllCourses,
@@ -49,7 +51,7 @@ var uploadCourse = multer({
 }).single('course');
 
 router.get('/index', ensureAuthenticated, (req, res) => {
-  res.render('./admin/index', {layout: 'admin/layout', name: req.user.dsName});
+  res.render('./admin/index', {layout: 'admin/layout', name: req.user._id});
 })
 
 //Course routes
@@ -350,6 +352,14 @@ router.get('/delete_user/:id', (req, res) => {
     }
   })
 })
+
+router.get('/logout', (req, res, next) => {
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    req.flash('success_msg', 'You are logged out');
+    res.redirect('/users/login');
+  });
+});
 
 // render form
 router.get('/icons', ensureAuthenticated, (req, res) => {

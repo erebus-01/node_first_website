@@ -10,6 +10,7 @@
   </header>
   <div class="wrapper">
     <h2 class="text-3">Course</h2>
+    <%- include('../partials/messages.ejs')%>
   </div>
   <section id="features" class="bg-gray">
     <div class="content">
@@ -267,7 +268,7 @@
 <script>
   $(document).ready(function(){
     $("#showIcon").click(function(){
-      $("#menu-customer").toggleClass("show");
+      $("#menu-customer").toggleClass("showMenu");
     });
   });
 </script>

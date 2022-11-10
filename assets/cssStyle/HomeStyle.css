@@ -1017,7 +1017,7 @@ img {
   transition: all 300ms ease-in-out;
 }
 
-.show {
+.showMenu {
   animation: menu-open 0.4s cubic-bezier(0.550, 0.055, 0.675, 0.190) both;
   opacity: 1;
 }

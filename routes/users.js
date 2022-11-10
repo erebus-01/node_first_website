@@ -123,7 +123,7 @@ router.post('/register', (req, res) => {
 
 //login handle
 router.post('/login' , (req, res, next) => {
-  passport.authenticate('local', {
+  passport.authenticate('admin', {
     successRedirect: '/admin/index',
     failureRedirect: '/users/login',
     failureFlash: true
@@ -131,7 +131,7 @@ router.post('/login' , (req, res, next) => {
 })
 
 //logout handle
-router.get('/logout', (req, res) => {
+router.get('/logout', (req, res, next) => {
   req.logout();
   req.flash('success_msg', 'You are logged out');
   res.redirect('/users/login');

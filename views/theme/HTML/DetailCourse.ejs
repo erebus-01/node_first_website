@@ -174,7 +174,11 @@
                 <li><a href="/learn">Learn</a></li>
                 <li><a href="/learn/accessibility"><%= course.title %></a></li>
               </ul>
-              <a href="" class="button button-blue">Add to cart</a>
+              <form action="/add-to-cart" method="post">
+                <input type="hidden" name="product" value="<%= course._id %>">
+                <input type="hidden" name="price" value="<%= course.price %>">
+                <button type="submit" class="button button-blue">Add to cart</button>
+              </form>
             </div>
           </nav>
 
@@ -313,7 +317,7 @@
     <script>
       $(document).ready(function(){
         $("#showIcon").click(function(){
-          $("#menu-customer").toggleClass("show");
+          $("#menu-customer").toggleClass("showMenu");
         });
       });
     </script>
