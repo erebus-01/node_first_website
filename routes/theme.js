@@ -41,11 +41,31 @@ router.get('/learn', async (req, res, next) => {
     console.log(err)
   }
 })
-router.get('/measure', (req, res) => {
-  res.render("./theme/HTML/Measure", {layout: 'theme/layout'})
-})
-router.get('/tags/case-study', (req, res) => {
-  res.render("./theme/HTML/CaseStudy", {layout: 'theme/layout'})
+router.get('/tag/case-study/:page', async (req, res, next) => {
+  const currentPage = req.params.page || 1
+  const nextPage = 12
+  try {
+    const blogs = await Blog.find({collections: {$all: ['Case Study']}}).sort({"_id": -1}).skip((currentPage - 1) * nextPage).limit(nextPage).exec()
+    console.log(blogs)
+    const count = await Blog.find({collections: {$all: ['Case Study']}}).count()
+
+    let totalPages = Math.ceil(count / nextPage)
+    const pagePlusOne = parseInt(currentPage) + 1
+    const pageMinusOne = parseInt(currentPage) - 1
+    
+    let context = {
+      layout: 'theme/layout', 
+      blogs: blogs, 
+      currentPage: currentPage,
+      totalPages: totalPages,
+      pagePlusOne: pagePlusOne,
+      pageMinusOne: pageMinusOne,
+    }
+    res.render("./theme/HTML/CaseStudy", context)
+    next()
+  }catch (err){
+    console.log(err)
+  }
 })
 router.get('/about', (req, res) => {
   res.render("./theme/HTML/About", {layout: 'theme/layout'})
@@ -125,27 +145,72 @@ router.get('/blogs/:page/', async (req, res, next) => {
     console.log(err)
   }
 })
-// router.get('/blog/:id', async (req, res, next) => {
-//   let id = req.params.id;
-//   try{
-//     Blog.findById(id, (error, blog) => {
-//       if(error) {
-//         res.redirect('/learn')
-//       }
-//       else{
-//         if(blog == null) {
-//           res.redirect('/learn')
-//         }
-//         else{
-//           res.render('./theme/HTML/DetailBlog', { blog: blog })
-//         }
-//       }
-//     })
-//   }
-//   catch(error) {
-//     res.status(500).json({msg: error});
-//   }
-// })
+router.get('/tags/:tag/:page', async (req, res, next) => {
+  const currentPage = req.params.page || 1
+  const nextPage = 12
+  const nameTag = req.params.tag
+  let str2 = nameTag.toUpperCase().replace('-', ' ')
+  try {
+    let filterName = ''
+    const tags = await Categories.find({})
+    tags.forEach(blog => {
+      if(blog.tags.toUpperCase() === str2) {
+        filterName = blog.tags
+      }
+    })
+    const tagsFilter = await Categories.find({tags: filterName})
+    const blogs = await Blog.find({collections: {$all: filterName}}).sort({"_id": -1}).skip((currentPage - 1) * nextPage).limit(nextPage).exec()
+    // console.log(tags)
+    const count = await Blog.find({collections: {$all: filterName}}).count()
+
+    let totalPages = Math.ceil(count / nextPage)
+    const pagePlusOne = parseInt(currentPage) + 1
+    const pageMinusOne = parseInt(currentPage) - 1
+    
+    let context = {
+      layout: 'theme/layout', 
+      blogs: blogs,
+      tagsFilter: tagsFilter,
+      filterName: filterName,
+      currentPage: currentPage,
+      totalPages: totalPages,
+      pagePlusOne: pagePlusOne,
+      pageMinusOne: pageMinusOne,
+    }
+    res.render("./theme/HTML/MoreTags", context)
+    next()
+  }catch (err){
+    console.log(err)
+  }
+})
+router.get('/blog/:id', async (req, res, next) => {
+  let id = req.params.id;
+  try{
+    Blog.findById(id, (error, blog) => {
+      if(error) {
+        res.redirect('/learn')
+      }
+      else{
+        if(blog == null) {
+          res.redirect('/learn')
+        }
+        else{
+          res.render('./theme/HTML/DetailBlog', {layout: 'theme/layout', blog: blog })
+        }
+      }
+    })
+  }
+  catch(error) {
+    res.status(500).json({msg: error});
+  }
+})
+
+
+
+
+router.get('/measure', (req, res) => {
+  res.render("./theme/HTML/Measure", {layout: 'theme/layout'})
+})
 router.get('/login', (req, res) => {
   res.render("./theme/HTML/Login", {layout: 'theme/layout'})
 })

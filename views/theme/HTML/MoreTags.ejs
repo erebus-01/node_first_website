@@ -8,8 +8,12 @@
         <header class="region">
           <div class="wrapper">
             <div class="headline all-center">
-              <h1 class="headline-title">Case Study</h1>
-              <p>Learn why and how other developers have used the web to create amazing web experiences for their users.</p>
+              <% if (tagsFilter.length == 1 ) {%>
+                <% tagsFilter.forEach(tag => { %>
+                  <h1 class="headline-title"><%= tag.tags %></h1>
+                  <p><%= tag.content %></p>
+                <% }) %>
+              <% } %>
               <div class="cluster flex-justify-center">
                 <img src="https://web.dev/images/icons/rss.svg" class="wifi" alt="">
               </div>
@@ -19,35 +23,43 @@
       </div>
     </div>
     <div class="region">
-      <div class="wrapper auto-grid">
-        <% blogs.forEach(blog => { %>
-        <article class="card">
-          <a href="/blog/<%= blog._id %>" target="_blank" rel="noopener noreferrer">
-            <img class="card__hero" src="../../uploads/blog/<%= blog.imageBlog %>" alt="">
-          </a>
-          <div class="card__content flow">
-            <h2 class="card__heading text-size-3">
-              <a href="/blog/<%= blog._id %>"><%= blog.title %></a>
-            </h2>
-            <p>
-              <%= blog.content %>
-            </p>
-          </div>
-          <div class="gap-top-size-1">
-            <span><%= blog.author %> - Oct 31, 2022</span>
-          </div>
-          <div class="card__tags cluster gap-top-base">
-            <% for (let i = 0; i< blog.collections.length; i++) { %>
-              <% if (blog.collections[i] == "Case Study") { %>
-                <a href="#" class="pill text-center" style="color: #3740ff;"><%= blog.collections[i] %></a>
-              <% } else { %>
-                <a href="#" class="pill text-center"><%= blog.collections[i] %></a>
+      <% if (blogs.length >= 1) {%>
+        <div class="wrapper auto-grid">
+          <% blogs.forEach(blog => { %>
+          <article class="card">
+            <a href="/blog/<%= blog._id %>">
+              <img class="card__hero" src="../../uploads/blog/<%= blog.imageBlog %>" alt="">
+            </a>
+            <div class="card__content flow">
+              <h2 class="card__heading text-size-3">
+                <a href="/blog/<%= blog._id %>"><%= blog.title %></a>
+              </h2>
+              <p>
+                <%= blog.content %>
+              </p>
+            </div>
+            <div class="gap-top-size-1">
+              <span><%= blog.author %> - Oct 31, 2022</span>
+            </div>
+            <div class="card__tags cluster gap-top-base">
+              <% for (let i = 0; i< blog.collections.length; i++) { %>
+                <% if (blog.collections[i] == filterName) { %>
+                  <a href="#" class="pill text-center" style="color: #3740ff;"><%= blog.collections[i] %></a>
+                <% } else { %>
+                  <a href="#" class="pill text-center"><%= blog.collections[i] %></a>
+                <% } %>
               <% } %>
-            <% } %>
+            </div>
+          </article>
+          <% }) %>
+        </div>
+      <% } else {%>
+        <div class="wrapper">
+          <div class="headline all-center">
+            <h1>Chưa có bài viết nào với tag này</h1>
           </div>
-        </article>
-        <% }) %>
-      </div>
+        </div>
+      <% } %>
       <div class="wrapper gap-top-size-3">
         <nav class="pagination">
           <div class="pagination__container">

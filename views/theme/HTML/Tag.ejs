@@ -18,7 +18,11 @@
       <% tags.forEach(tag => { %>
         <article class="card">
           <div class="card__content flow">
-            <h2 class="card__heading text-size-3"><a href="#"><%= tag.tags %></a></h2>
+            <h2 class="card__heading text-size-3">
+              <a href="/tags/<%= tag.tags.toLowerCase().replace(' ', '-') %>/1">
+                <%= tag.tags %>
+              </a>
+            </h2>
             <p><%= tag.content %></p>
           </div>
         </article>

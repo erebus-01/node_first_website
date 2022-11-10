@@ -10,7 +10,7 @@
 </style>
 <main id="main">
   <img
-    src="https://web-dev.imgix.net/image/kheDArv5csY6rvQUJDbWRscckLr1/Gld0PunAHpxPzZSTPWDv.jpg"
+    src="../uploads/blog/<%= blog.imageBlog %>?auto=format&w=1600"
     class="hero-image"
     alt=""
   />
@@ -18,7 +18,7 @@
     <div class="sidebar region flex-align-start flex-dir-rev flex-wrap-no">
       <nav
         aria-label="On this page"
-        class="course__toc toc over-scroll hidden-yes xl:hidden-no"
+        class="course__toc toc over-scroll hidden-yes"
         data-type="side"
       >
         <div class="course-toc__heading font-google-sans weight-medium">
@@ -33,47 +33,14 @@
                 >Stable browser releases</a
               >
               <ul class="toc__list">
+                <% for(let i = 0; i < blog.tableOfContent.length; i++) { %>
                 <li class="toc__listitem">
-                  <a class="toc__anchor" href="#
-                    >Animation of grid tracks</a
-                  >
+                  <a class="toc__anchor" href="#">
+                    <%= blog.tableOfContent[i] %>
+                  </a>
                 </li>
-                <li class="toc__listitem">
-                  <a
-                    class="toc__anchor"
-                    href="#"
-                    >Additions to getDisplayMedia()</a
-                  >
-                </li>
-                <li class="toc__listitem">
-                  <a
-                    class="toc__anchor"
-                    href="#"
-                    >Testing for support of font technology and features
-                    from CSS</a
-                  >
-                </li>
-                <li class="toc__listitem">
-                  <a class="toc__anchor" href="#"
-                    >Scroll to text fragment</a
-                  >
-                </li>
-                <li class="toc__listitem">
-                  <a class="toc__anchor" href="#"
-                    >AVIF support</a
-                  >
-                </li>
-                <li class="toc__listitem">
-                  <a class="toc__anchor" href="#"
-                    >Web Push for Safari</a
-                  >
-                </li>
+                <% } %>
               </ul>
-            </li>
-            <li class="toc__listitem">
-              <a class="toc__anchor" href="#"
-                >Beta browser releases</a
-              >
             </li>
           </ul>
         </div>
@@ -106,27 +73,23 @@
               </li>
             </ul>
           </nav>
-          <h1>New to the web platform in October</h1>
+          <h1><%= blog.title %></h1>
           <p>
-            Discover some of the interesting features that landed in stable
-            and beta web browsers during October 2022.
+            <%= blog.content %>
           </p>
           <div class="flow-space-size-1 color-mid-text text-size-0">
-            <time>Oct 31, 2022</time>
+            <%= blog.author %> - <time>Oct 31, 2022</time>
           </div>
-          <h3 id="animation-of-grid-tracks">Animation of grid tracks</h3>
           <p>
-            Safari 16.1 brings Web Push support to Safari on macOS Ventura.
-            This uses the Push API and Notifications API, you can read more
-            about this in the article
-            <a
-              href="https://webkit.org/blog/12945/meet-web-push/"
-              rel="noopener"
-              >Meet Web Push</a
-            >. Web Push landing in Safari means that it is now available
-            across all three major engines.
+            <%= blog.description %>
           </p>
         </header>
+        <div class="card__tags cluster gap-top-base">
+          <% for (let i = 0; i< blog.collections.length; i++) { %>
+            <a href="#" class="pill text-center"><%= blog.collections[i] %></a>
+          <% } %>
+        </div>
+        <div class="flow-space-size-2"><a class="button" data-type="secondary" href="/blogs/1"> <svg viewBox="0 0 24 24" style="fill: #3740ff" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M0 0h24v24H0z" fill="none"></path><path d="M20 11H7.83l5.59-5.59L12 4l-8 8 8 8 1.41-1.41L7.83 13H20v-2z"></path></svg>	&nbsp;<span>Return to all articles</span> </a></div>
       </article>
     </div>
   </div>
