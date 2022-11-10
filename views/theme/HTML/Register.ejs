@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="../assets/cssStyle/Blog.css">
 <main id="main">
   <div class="region wrapper" style="max-width: 50rem">
-    <form action="">
+    <form action="/register" method="post" enctype="application/x-www-form-urlencoded">
       <div class="text-center mb-3">
         <svg
           viewBox="0 0 119.79 22.32"
@@ -39,7 +39,7 @@
             type="text"
             class="form-control"
             placeholder="First name"
-            aria-label="First name"
+            name="fName"
           />
         </div>
         <div class="col">
@@ -47,7 +47,7 @@
             type="text"
             class="form-control"
             placeholder="Last name"
-            aria-label="Last name"
+            name="lName"
           />
         </div>
       </div>
@@ -56,23 +56,23 @@
           type="text"
           class="form-control"
           placeholder="Email"
-          aria-label="Last name"
+          name="email"
         />
       </div>
       <div class="margin-1rem">
         <input
-          type="text"
+          type="password"
           class="form-control"
           placeholder="Password"
-          aria-label="Last name"
+          name="password"
         />
       </div>
       <div class="margin-1rem">
         <input
-          type="text"
+          type="password"
           class="form-control"
+          name="cfPassword"
           placeholder="Confirm password "
-          aria-label="Last name"
         />
       </div>
       <div class="margin-1rem cluster">
@@ -80,7 +80,7 @@
           <input
             class="form-check-input"
             type="checkbox"
-            value=""
+            name="add"
             id="Add"
           />
           <label class="form-check-label" for="Add">
@@ -93,7 +93,7 @@
           <input
             class="form-check-input"
             type="checkbox"
-            value=""
+            name="accept"
             id="Terms"
           />
           <label class="form-check-label" for="Terms">
@@ -103,6 +103,9 @@
             Google's <a href="" class="link-form"> Privacy Policy</a>.
           </label>
         </div>
+      </div>
+      <div class="all-center gap-top-size-2">
+        <p>I already have an account <a href="/login" style="color: #3740ff;">Login</a> </p>
       </div>
       <div class="gap-top-size-2"></div>
       <div class="gap-top-size-1 d-flex justify-content-center">

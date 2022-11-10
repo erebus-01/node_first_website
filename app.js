@@ -9,6 +9,7 @@ const app = express();
 
 //passport configurations
 require('./config/passport')(passport);
+require('./config/portCustomer')(passport);
 
 // DB Config
 const db = require('./config/keys').MongoURI;

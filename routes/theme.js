@@ -1,9 +1,13 @@
 const express = require('express')
-const Blog = require('../models/Blog')
-const Categories = require('../models/Categories')
 const router = express.Router()
 
+const bcrypt = require('bcryptjs')
+const passport = require('passport')
+
+const Blog = require('../models/Blog')
+const Categories = require('../models/Categories')
 const Course = require("../models/Course")
+const Customer = require('../models/Customer')
 
 router.get('/', async (req, res, next) => {
   try {
@@ -206,16 +210,86 @@ router.get('/blog/:id', async (req, res, next) => {
 })
 
 
-
-
 router.get('/measure', (req, res) => {
   res.render("./theme/HTML/Measure", {layout: 'theme/layout'})
 })
+
 router.get('/login', (req, res) => {
   res.render("./theme/HTML/Login", {layout: 'theme/layout'})
 })
+router.post('/login' , (req, res, next) => {
+  passport.authenticate('local', {
+    successRedirect: '/',
+    failureRedirect: '/login',
+    failureFlash: true
+  })(req, res, next);
+})
+
+//logout handle
+router.get('/logout', (req, res) => {
+  req.logout();
+  req.flash('success_msg', 'You are logged out');
+  res.redirect('/');
+});
+
 router.get('/register', (req, res) => {
   res.render("./theme/HTML/Register", {layout: 'theme/layout'})
+})
+router.post('/register', (req, res) => {
+  const {fName, lName, email, password, cfPassword} = req.body;
+  let err = [];
+
+  if(password.length < 6 || password.length > 18) {
+    err.push({msg: "Password must be at least 6 characters"})
+  }
+  if(password != cfPassword){
+    err.push({msg: "Password not match"})
+  }
+  if(!req.body.accept && !req.body.add) {
+    err.push({msg: "You need accepted all Terms and Condition"})
+  }
+  if(!req.body.add) {
+    err.push({msg: "You need accepted all Terms and Condition"})
+  }
+  if(!req.body.accept) {
+    err.push({msg: "You need accepted all Terms and Condition"})
+  }
+
+  if(err.length > 0) {
+    console.log(err)
+    res.redirect('/register')
+  }
+  else {
+    Customer.findOne({
+      email: req.body.email
+    }).then(customer => {
+      if(customer) {
+        err.push({msg: "Email already registered"})
+        res.redirect('/register')
+      }
+      else {
+        const newCustomer = new Customer({
+          fName: req.body.fName,
+          lName: req.body.lName,
+          email: req.body.email,
+          password: req.body.password,
+        })
+        bcrypt.genSalt(10, (err, salt) => {
+          bcrypt.hash(newCustomer.password, salt, (err, hash) => {
+            if (err) throw err;
+            newCustomer.password = hash;
+            newCustomer.save()
+              .then(customer => {
+                req.flash('success_msg', 'Account registration is successful, you can log in to start downloading the game now');
+                res.redirect('/login');
+              })
+              .catch(err => console.log(err));
+          })
+        })
+      }
+    })
+  }
+
 })
 
 module.exports = router
