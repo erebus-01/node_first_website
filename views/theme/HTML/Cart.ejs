@@ -1,0 +1,181 @@
+<link rel="stylesheet" href="../assets/cssStyle/Blog.css">
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
+<style>
+  p,
+  li {
+    max-width: 100%;
+  }
+</style>
+<main id="main">
+  <div class="region">
+    <div class="container-w">
+      <h1 class="pb-5">Shopping Cart</h1>
+      <div class="styles--shopping-container--1aPCP">
+        <div class="styles--sc-lists-pane--1jENW">
+          <div class="styles--sc-shopping-list--2_s4L">
+            <h3 class="styles--sc-shopping-list__title--3giMp" data-purpose="cart-list-title">
+              <% courseInCart.forEach(elem => { %>
+                <%= elem.cartItems.length %>
+              <% }) %> Courses in Cart
+            </h3>
+            <div>
+              <ul class="styles--sc-shopping-list__items--h-1Zf styles--sc-shopping-list__items--cart-page--33suQ">
+                <% arrTitle.forEach(post => { %>
+                  <div class="styles--sc-shopping-list__item--26SKJ">
+                    <li>
+                      <div class="styles--sc-card--3imwn">
+                        <div class="styles--sc-card__container--18fyK">
+                          <div class="styles--sc-card__column-wrapper--1pCwq">
+                            <div class="styles--sc-card__title-wrapper--3SoEA"><a
+                                href="/learn/<%= post._id %>"
+                                data-purpose="shopping-course-card-title" target="_self">
+                                <div class="styles--sc-card__title--L-qWv">
+                                  <%= post.title %>
+                                </div>
+                                <span class="styles--sc-card__instructors--DCi03" data-purpose="">
+                                  <%= post.overview %>
+                                </span>
+                              </a></div>
+                            <div class="styles--sc-card__prices--1-_t8">
+                              <div
+                                class="price-text-container price-text--base-price__container--2Aiat price-text--left--Suaq2 price-text--vertical--Hpo2A"
+                                data-purpose="price-text-container">
+                                <div
+                                  class="course-price-text price-text--base-price__discount--3ipOd price-text--primary--34nhU price-text--small--1TLL- price-text--bold--2vzoW"
+                                  data-purpose="course-price-text"><span><span>$<%= post.price %></span></span></div>
+                                <div
+                                  class="original-price-container price-text--base-price__original--15_nx price-text--lightest--3B6Z1 price-text--small--1TLL- price-text--regular--1JpPM price-text--base-price__original--no-margin--3FrbC"
+                                  data-purpose="original-price-container">
+                                  <div data-purpose="course-old-price-text"><span><s><span>$999,00</span></s></span>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="udlite-in-udheavy">
+                              <div class="styles--meta-info--2Uelf">
+                                <span class="styles--row--Q1FuE styles--content-info--Xs6jc">
+                                  <%= post.tableOfContents.length %> table Of Contents • 1 Introducer • Intermediate
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="styles--sc-card__thumbnail--1rTuN" data-purpose="cart-thumbnail"><img
+                              class="styles--sc-card__image--2xyJE styles--sc-card__image--lg--J8lG8"
+                              data-purpose="card-thumbnail-lg" alt="" width="240" height="135"
+                              src="../uploads/course/<%= post.course %>">
+                          </div>
+                          <div class="styles--sc-card__actions--3C_uV" data-purpose="actions"><span
+                              class="styles--sc-card__action--1kP0W"><a class="purple-link"
+                                data-purpose="action-remove-/course/learn-cpp-programming-by-making-games-volume-2/"
+                                role="button" tabindex="0">Remove</a></span><span
+                              class="styles--sc-card__action--1kP0W"><a class="purple-link"
+                                data-purpose="action-move-to-saved-for-later-/course/learn-cpp-programming-by-making-games-volume-2/"
+                                role="button" tabindex="0">Save for Later</a></span><span
+                              class="styles--sc-card__action--1kP0W"><a class="purple-link"
+                                data-purpose="action-move-to-wishlist-/course/learn-cpp-programming-by-making-games-volume-2/"
+                                role="button" tabindex="0">Move to Wishlist</a></span></div>
+                        </div>
+                    </li>
+                  </div>
+                <% }) %>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="styles--sc-checkout-pane--71SP_ styles--sc-checkout-pane--vertical--1Z5xx">
+          <div data-purpose="total-price"
+            class="styles--sc-checkout-box__total--346Yo styles--sc-checkout-box__total--cartPage--2quEj">
+            <div
+              class="price-text-container price-text--base-price__container--2Aiat price-text--left--Suaq2 price-text--vertical--Hpo2A"
+              data-purpose="price-text-container">
+              <div
+                class="price-text--base-price__total-label--38Nm7 price-text--lighter--3bq3T price-text--medium--2iafW price-text--regular--1JpPM"
+                data-purpose="course-price-total-label">Total:</div>
+              <div
+                class="course-price-text price-text--base-price__discount--3ipOd price-text--black--lcHjZ price-text--xlarge--1DDwB price-text--semibold--3VfdM"
+                data-purpose="course-price-text">
+                <span class="sr-only">Current price</span>
+                <span>
+                  <span>
+                    <% arrTitle.forEach(item => { %>
+                      <% total += Number(item.price) %>
+                    <%}) %>
+                    $<%= total %>
+                  </span>
+                </span>
+              </div>
+              <div
+                class="original-price-container price-text--base-price__original--15_nx price-text--lightest--3B6Z1 price-text--small--1TLL- price-text--regular--1JpPM"
+                data-purpose="original-price-container">
+                <div data-purpose="course-old-price-text"><span class="sr-only">Original
+                    Price</span><span><s><span>$42.27</span></s></span></div>
+              </div>
+              <div class="price-text--lightest--3B6Z1 price-text--small--1TLL- price-text--regular--1JpPM"
+                data-purpose="discount-percentage"><span class="sr-only">Discount</span><span>80% off</span></div>
+            </div>
+          </div>
+          <div class="mt-3">
+            <form action="/create-checkout" method="post">
+              <!-- <input type="hidden" name="total" value="<%= total %>" id=""> -->
+              <button 
+                data-purpose="shopping-cart-checkout" 
+                type="submit"
+                id="checkout-button"
+                class="btn_c btn-lg_c btn-primary_c btn-block_c"
+              >
+                Checkout
+              </button>
+            </form>
+            <form action="/create-checkout" method="POST">
+              <input type="hidden" name="total" value="<%= total %>" id="">
+              <script
+                src="//checkout.stripe.com/v2/checkout.js"
+                class="stripe-button"
+                data-key="pk_test_51JXp4MKDUxtyKwlO5hiZqb957Lt56KTYPDe4acfr7rv2irfAhDCGUo6G1NgRY6rnnWZ2pMQjySUWypGXczpdlhta00GYbUnjTS"
+                data-amount="2500"
+                data-currency="inr"
+                data-name="Crafty Gourav"
+                data-description="Handmade Art and Craft Products"
+                data-locale="auto" >
+              </script>
+            </form>
+          </div>
+          <hr>
+          <div><label for="promotions" class="redeem-coupon--promotions--vOSTF">Promotions</label></div>
+          <div class="mt10">
+            <form data-purpose="coupon-form" class="m0">
+              <div class="form-group"><span class="input-group input-group-sm"><label for="coupon-input"
+                    class="sr-only">Enter Coupon</label><input data-purpose="coupon-input" placeholder="Enter Coupon"
+                    type="text" id="coupon-input" class="form-control" value=""><span class="input-group-btn"><button
+                      data-purpose="coupon-submit" type="submit"
+                      class="btn_c btn-primary_c"><span>Apply</span></button></span></span><span
+                  class="help-block"></span></div>
+            </form>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main
+
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js"
+integrity="sha384-Xe+8cL9oJa6tN/veChSP7q+mnSPaj5Bcu9mPX5F5xIGE0DVittaqT5lorf0EI7Vk"
+crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"
+integrity="sha384-ODmDIVzN+pFdexxHEHFBQH3/9/vQ9uori45z4JjnFsRydbmQbmL5t1tQ0culUzyK"
+crossorigin="anonymous"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"
+integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA=="
+crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script>
+$(document).ready(function () {
+  $("#showIcon").click(function () {
+    $("#menu-customer").toggleClass("showMenu");
+  });
+});
+</script>

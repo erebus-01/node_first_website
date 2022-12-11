@@ -3,6 +3,7 @@ const router = express.Router()
 
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
+const stripe = require('stripe')('sk_test_51JXp4MKDUxtyKwlOqQQg6AkI66JciVOYYGpbs9f7oSiGn9owWM2ijXHsFVSfQxorViLvTUmz8g4qfjXNyw476eqn00NgFxis6U');
 
 const Blog = require('../models/Blog')
 const Categories = require('../models/Categories')
@@ -294,6 +295,89 @@ router.get('/logout', (req, res) => {
 router.get('/register', (req, res) => {
   res.render("./theme/HTML/Register", {layout: 'theme/layout'})
 })
+
+router.get('/cart', ensureAuthenticated, async (req, res, next) => {
+  try {
+    const courseInCart = await Cart.find({customer: req.user._id})
+    const countCourseInCart = await Cart.find({customer: req.user._id}).count()
+    const getCourse = await Course.find({})
+
+    let filterCourse = {}
+    let arrTitle = []
+
+    for(let elem of courseInCart){
+      for(let i = 0; i < elem.cartItems.length; i++ ){
+        filterCourse = await Course.find({_id: elem.cartItems[i].product})
+        filterCourse.forEach(elem => {
+          arrTitle.push(elem)
+        })
+      }
+    }
+    const total = 0;
+    // console.log(arrTitle)
+
+    const context = {
+      layout: 'theme/layout', 
+      courseInCart: courseInCart, 
+      countCourseInCart: countCourseInCart, 
+      getCourse: getCourse,
+      total: total,
+      arrTitle: arrTitle,
+      filterCourse: filterCourse
+    }
+
+    // console.log(courseSlide)
+    res.render("./theme/HTML/Cart", context)
+    next()
+  }catch (err){
+    console.log(err)
+  }
+})
+
+router.get('/stripe', (req, res) => {
+  res.render("./theme/HTML/stripe", {layout: 'theme/layout'})
+})
+
+// router.get('/cart', ensureAuthenticated, (req, res, next) => {
+//   Cart.findOne({customer: req.user._id})
+//   .populate('cartItems.product')
+//   .exec((error, cart) => {
+//     if(error) return res.status(400).json({error})
+//     if(cart){
+//       let cartItems = {}
+//       cart.cartItems.map((item, index) => { 
+//         cartItems[item.product._id.toString()] = {
+//           _id: item.product._id.toString(), 
+//           title: item.product.title,
+//           course: item.product.course,
+//           price: item.product.price
+//         }
+//       })
+//       // res.render("./theme/HTML/Cart", {layout: 'theme/layout'})
+//       res.status(200).json({cartItems})
+//     }
+//   })
+// })
+
+router.post('/create-checkout', async (req, res) => {
+  console.log(req.body.total)
+  const totalPrice = Number(req.body.total)
+  const session = await stripe.checkout.sessions.create({
+    line_items: [
+      {
+        // Provide the exact Price ID (for example, pr_1234) of the product you want to sell
+        price: 'price_1MDjAaKDUxtyKwlOMDjaNIYP',
+        quantity: 1,
+      },
+    ],
+    mode: 'payment',
+    success_url: `http://localhost:5000/learn`,
+    cancel_url: `http://localhost:5000/`,
+  });
+
+  res.redirect('/');
+})
+
 router.post('/register', (req, res) => {
   const {fName, lName, email, password, cfPassword} = req.body;
   let err = [];

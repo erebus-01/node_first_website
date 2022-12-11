@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="../assets/cssStyle/Blog.css">
+<script src="https://polyfill.io/v3/polyfill.min.js?version=3.52.1&features=fetch"></script>
+<script src="https://js.stripe.com/v3/"></script>
+
+<style>
+  p,
+  li {
+    max-width: 100%;
+  }
+</style>
+
+<h3>Welcome to Payment Gateway</h3>
+<form action="payment" method="POST">
+  <script
+    src="//checkout.stripe.com/v2/checkout.js"
+    class="stripe-button"
+    data-key="pk_test_51JXp4MKDUxtyKwlO5hiZqb957Lt56KTYPDe4acfr7rv2irfAhDCGUo6G1NgRY6rnnWZ2pMQjySUWypGXczpdlhta00GYbUnjTS"
+    data-amount="2500"
+    data-currency="inr"
+    data-name="Crafty Gourav"
+    data-description="Handmade Art and Craft Products"
+    data-locale="auto" >
+  </script>
+</form>
