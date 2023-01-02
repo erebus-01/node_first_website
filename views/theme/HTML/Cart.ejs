@@ -66,16 +66,17 @@
                               data-purpose="card-thumbnail-lg" alt="" width="240" height="135"
                               src="../uploads/course/<%= post.course %>">
                           </div>
-                          <div class="styles--sc-card__actions--3C_uV" data-purpose="actions"><span
-                              class="styles--sc-card__action--1kP0W"><a class="purple-link"
-                                data-purpose="action-remove-/course/learn-cpp-programming-by-making-games-volume-2/"
-                                role="button" tabindex="0">Remove</a></span><span
-                              class="styles--sc-card__action--1kP0W"><a class="purple-link"
-                                data-purpose="action-move-to-saved-for-later-/course/learn-cpp-programming-by-making-games-volume-2/"
-                                role="button" tabindex="0">Save for Later</a></span><span
-                              class="styles--sc-card__action--1kP0W"><a class="purple-link"
-                                data-purpose="action-move-to-wishlist-/course/learn-cpp-programming-by-making-games-volume-2/"
-                                role="button" tabindex="0">Move to Wishlist</a></span></div>
+                          <div class="styles--sc-card__actions--3C_uV" data-purpose="actions">
+                            <span class="styles--sc-card__action--1kP0W">
+                              <a class="purple-link" href="/cart_delete/<%= post.id %>">Remove</a>
+                            </span>
+                            <span class="styles--sc-card__action--1kP0W">
+                              <a class="purple-link">Save for Later</a>
+                            </span>
+                            <span class="styles--sc-card__action--1kP0W">
+                              <a class="purple-link">Move to Wishlist</a>
+                            </span>
+                          </div>
                         </div>
                     </li>
                   </div>

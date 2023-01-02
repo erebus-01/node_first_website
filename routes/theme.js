@@ -1,6 +1,8 @@
 const express = require('express')
 const router = express.Router()
 
+const mongoose = require('mongoose')
+
 const bcrypt = require('bcryptjs')
 const passport = require('passport')
 const stripe = require('stripe')('sk_test_51JXp4MKDUxtyKwlOqQQg6AkI66JciVOYYGpbs9f7oSiGn9owWM2ijXHsFVSfQxorViLvTUmz8g4qfjXNyw476eqn00NgFxis6U');
@@ -216,10 +218,6 @@ router.post('/add-to-cart', ensureAuthenticated, (req, res, next) => {
   const { product, price } = req.body 
   console.log({ product, price }, req.user._id)
 
-  var ObjectId = require('mongodb').ObjectId; 
-  var idCustomer = req.user._id;
-  var str_id = idCustomer.toString()
-
   Cart.find({"customer": req.user._id})
   .exec((error, cart) => {
     if(error) return res.status(500).json({msg: error})
@@ -270,6 +268,50 @@ router.post('/add-to-cart', ensureAuthenticated, (req, res, next) => {
 
 })
 
+router.get('/cart_delete/:id', ensureAuthenticated, (req, res) => {
+  let id = req.params.id;
+  Cart.find({"customer": req.user._id})
+  .exec((error, cart) => {
+    if(error) return res.status(500).json({msg: error})
+    if(cart){
+      let isExists = false
+      cart.forEach(item => {
+        item.cartItems.forEach(elem => {
+          if(elem.product == id) {
+            isExists = true
+          }
+        })
+      })
+      
+      if (isExists) {
+        Cart.findOneAndUpdate({"customer": req.user._id}, {
+          "$pull": {
+            "cartItems": {
+              product: mongoose.Types.ObjectId(id)
+            }
+          }
+        })
+        .exec((error, _cart) => {
+          if(error) return res.status(500).json({msg: error})
+          if(_cart) {
+            req.flash('success_msg', 'Successfully added the course to your cart !!!');
+            res.redirect('/cart');
+          }
+        })
+        console.log("xoa thanh cong");
+      }
+      else {
+        req.flash('error_msg', 'Course is existed in cart !!!');
+        console.log("xoa that bai");
+        res.redirect('/cart');
+      }
+    }
+    else {
+      console.log("loi roi");
+    }
+  })
+})
+
 router.get('/measure', (req, res) => {
   res.render("./theme/HTML/Measure", {layout: 'theme/layout'})
 })
@@ -287,14 +329,16 @@ router.post('/login' , (req, res, next) => {
 
 //logout handle
 router.get('/logout', (req, res) => {
-  req.logout();
-  req.flash('success_msg', 'You are logged out');
-  res.redirect('/');
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.redirect('/');
+  });
 });
 
 router.get('/register', (req, res) => {
   res.render("./theme/HTML/Register", {layout: 'theme/layout'})
 })
+
 
 router.get('/cart', ensureAuthenticated, async (req, res, next) => {
   try {
@@ -337,27 +381,6 @@ router.get('/cart', ensureAuthenticated, async (req, res, next) => {
 router.get('/stripe', (req, res) => {
   res.render("./theme/HTML/stripe", {layout: 'theme/layout'})
 })
-
-// router.get('/cart', ensureAuthenticated, (req, res, next) => {
-//   Cart.findOne({customer: req.user._id})
-//   .populate('cartItems.product')
-//   .exec((error, cart) => {
-//     if(error) return res.status(400).json({error})
-//     if(cart){
-//       let cartItems = {}
-//       cart.cartItems.map((item, index) => { 
-//         cartItems[item.product._id.toString()] = {
-//           _id: item.product._id.toString(), 
-//           title: item.product.title,
-//           course: item.product.course,
-//           price: item.product.price
-//         }
-//       })
-//       // res.render("./theme/HTML/Cart", {layout: 'theme/layout'})
-//       res.status(200).json({cartItems})
-//     }
-//   })
-// })
 
 router.post('/create-checkout', async (req, res) => {
   console.log(req.body.total)
