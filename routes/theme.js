@@ -12,6 +12,7 @@ const Categories = require('../models/Categories')
 const Course = require("../models/Course")
 const Customer = require('../models/Customer')
 const Cart = require('../models/Cart')
+const Order = require('../models/Order')
 const { ensureAuthenticated } = require('../config/Authenticated')
 
 router.get('/', async (req, res, next) => {
@@ -366,6 +367,7 @@ router.get('/cart', ensureAuthenticated, async (req, res, next) => {
       countCourseInCart: countCourseInCart, 
       getCourse: getCourse,
       total: total,
+      user: req.user,
       arrTitle: arrTitle,
       filterCourse: filterCourse
     }
@@ -376,6 +378,74 @@ router.get('/cart', ensureAuthenticated, async (req, res, next) => {
   }catch (err){
     console.log(err)
   }
+})
+
+router.post('/checkout_cart', async (req, res) => {
+  
+  const courses = req.body.courses
+  const lengthCourse = req.body.length
+  const splitCourse = courses.split(",");
+  console.log(splitCourse)
+  const newOrder = new Order({
+    email: req.body.customer,
+    price: req.body.total,
+    courses: splitCourse
+  })
+  const intLength = parseInt(lengthCourse)
+  if(intLength > 0) {
+    newOrder.save().then(course => {
+      req.flash('success_msg', 'Your order has been');
+      res.redirect('/learn')
+    })
+  
+    // let id = req.params.id;
+    Cart.find({"customer": req.user._id})
+    .exec((error, cart) => {
+      if(error) return res.status(500).json({msg: error})
+      if(cart){
+        // let isExists = false
+        // cart.forEach(item => {
+        //   item.cartItems.forEach(elem => {
+        //     if(elem.product == id) {
+        //       isExists = true
+        //     }
+        //   })
+        // })
+        
+        // if (isExists) {
+          splitCourse.forEach(idCourse => {
+            Cart.findOneAndUpdate({"customer": req.user._id}, {
+              "$pull": {
+                "cartItems": {
+                  product: mongoose.Types.ObjectId(idCourse)
+                }
+              }
+            })
+            .exec((error, _cart) => {
+              if(error) return res.status(500).json({msg: error})
+              if(_cart) {
+                req.flash('success_msg', 'Successfully added the course to your cart !!!');
+                // res.redirect('/learn');
+              }
+            })
+          })
+        // }
+        // else {
+        //   req.flash('error_msg', 'Course is existed in cart !!!');
+        //   console.log("xoa that bai");
+        //   res.redirect('/cart');
+        // }
+      }
+      else {
+        console.log("loi roi");
+      }
+    })
+  }
+  else {
+    req.flash('error_msg', 'Your cart is empty !!! Please add some courses to your cart');
+    res.redirect('/learn');
+  }
+
 })
 
 router.get('/stripe', (req, res) => {

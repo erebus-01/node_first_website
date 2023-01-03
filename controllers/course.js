@@ -2,6 +2,7 @@ const Course = require("../models/Course");
 const Categories = require("../models/Categories");
 const Blog = require("../models/Blog");
 const User = require("../models/User");
+const Order = require("../models/Order");
 
 const getAllCourses = async (req, res, next) => {
   try{
@@ -115,6 +116,34 @@ const getCategories = (req, res) => {
   })
 };
 
+const getAllOrder = async (req, res, next) => {
+  try{
+    const order = await Order.find({})
+    res.render("./admin/pages/tables/tables_order", { layout: "admin/layout", order: order});
+    next();
+  }
+  catch(error) {
+    res.status(500).json({msg: error});
+  }
+}
+
+const getOrder = (req, res) => {
+  let id = req.params.id;
+  Order.findById(id, (error, orderCourse) => {
+    if(error) {
+      res.status(500).json({msg: error});
+    }
+    else{
+      if(orderCourse == null) {
+        res.status(500).json({msg: error});
+      }
+      else{
+        res.render('./admin/pages/update/order', { layout: "admin/layout", orderCourse: orderCourse})
+      }
+    }
+  })
+};
+
 module.exports = {
   getAllCourses,
   getAllCategories,
@@ -123,5 +152,7 @@ module.exports = {
   getCategories,
   getBlog,
   getCourse,
-  getAllBlog
+  getAllBlog,
+  getAllOrder,
+  getOrder
 };

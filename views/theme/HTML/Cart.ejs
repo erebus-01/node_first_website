@@ -118,8 +118,20 @@
             </div>
           </div>
           <div class="mt-3">
-            <form action="/create-checkout" method="post">
-              <!-- <input type="hidden" name="total" value="<%= total %>" id=""> -->
+            <form action="/checkout_cart" method="post">
+              <input type="hidden" name="total" value="<%= total %>" id="">
+              <input type="hidden" name="customer" value="<%= user.email %>" id="">
+              <% let courses = [] %>
+              <% let lengthCourse = 0 %>
+              <% arrTitle.forEach(post => { %>
+                <% courses.push(post.id) %>
+              <% }) %>
+              <input type="hidden" name="courses" value="<%= courses %>" id="">
+              <% courseInCart.forEach(elem => { %>
+                <%= lengthCourse = elem.cartItems.length %>
+              <% }) %>
+              
+              <input type="text" name="length" value="<%= lengthCourse %>" id="">
               <button 
                 data-purpose="shopping-cart-checkout" 
                 type="submit"

@@ -14,6 +14,8 @@ const {
   getBlog,
   getAllBlog,
   getCourse,
+  getAllOrder,
+  getOrder,
 } = require('../controllers/course')
 
 
@@ -60,6 +62,8 @@ router.route("/tables_course").get(getAllCourses)
 router.route("/tables_blog").get(fetchAllBlog)
 router.route("/tables_categories").get(getAllCategories)
 router.route("/tables_user").get(getAllUser)
+router.route("/tables_order").get(getAllOrder)
+router.route("/order/:id").get(getOrder)
 router.route("/blog").get(getAllBlog)
 router.route("/edit_course/:id").get(getCourse)
 router.route("/edit_blog/:id").get(getBlog);
